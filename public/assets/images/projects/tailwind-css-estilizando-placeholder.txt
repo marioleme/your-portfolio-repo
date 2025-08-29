@@ -1,0 +1,15 @@
+IMAGE PLACEHOLDER: tailwind-css-estilizando.png
+
+This file serves as a reminder that you need to add the project image:
+- Image name: tailwind-css-estilizando.png
+- Location: public/assets/images/projects/tailwind-css-estilizando.png
+- Recommended size: 800x400px or similar aspect ratio
+- Format: PNG, JPG, or WEBP
+
+You can take a screenshot of the newsletter component or create a visual representation showing:
+- The responsive newsletter signup form
+- Desktop and mobile layouts
+- Tailwind CSS styling showcase
+- Custom animations (bell icon hover effect)
+
+This project demonstrates modern utility-first CSS with Tailwind CSS framework.

@@ -61,6 +61,29 @@ const Projects = () => {
       demo: 'https://carteira-financeira-nextjs.netlify.app/auth',
       image: '/assets/images/projects/carteira.png'
     },
+    {
+      id: 'react-migrando-typescript',
+      title: 'Organo - Migração para TypeScript',
+      description: 'Projeto de migração de uma aplicação React de JavaScript para TypeScript, demonstrando boas práticas de tipagem e refatoração de código',
+      technologies: ['React', 'TypeScript', 'JavaScript', 'Hooks'],
+      category: 'react',
+      featured: true,
+      highlights: ['Migração JS para TS', 'Tipagem estática', 'Refatoração'],
+      demo: 'https://react-migrando-typescript.netlify.app',
+      github: 'https://github.com/marioleme/react-migrando-typescript',
+      image: '/assets/images/projects/react-migrando-typescript.png'
+    },
+    {
+      id: 'tailwind-css-estilizando',
+      title: 'Tailwind CSS - Newsletter Component',
+      description: 'Projeto de estudo do framework Tailwind CSS focado na criação de componentes responsivos, incluindo newsletter signup com animações customizadas e design moderno',
+      technologies: ['HTML5', 'Tailwind CSS', 'CSS3', 'JavaScript'],
+      category: 'frontend',
+      featured: true,
+      highlights: ['Design responsivo', 'Animações customizadas', 'Utility-first CSS'],
+      github: 'https://github.com/marioleme/tailwind-css-estilizando',
+      image: '/assets/images/projects/tailwind-desktop.png'
+    },
     /*
     {
       id: 'portfolio-react',
@@ -151,15 +174,15 @@ const Projects = () => {
   const getFilteredProjects = () => {
     switch (activeFilter) {
       case 'react':
-        return featuredProjects.filter(project => project.category === 'react').slice(0, 4);
+        return featuredProjects.filter(project => project.category === 'react').slice(0, 6);
       case 'fullstack':
-        return featuredProjects.filter(project => project.category === 'fullstack').slice(0, 4);
+        return featuredProjects.filter(project => project.category === 'fullstack').slice(0, 6);
       case 'frontend':
-        return featuredProjects.filter(project => project.category === 'frontend').slice(0, 4);
+        return featuredProjects.filter(project => project.category === 'frontend').slice(0, 6);
       case 'featured':
       case 'all':
       default:
-        return featuredProjects.slice(0, 4); // Show max 4 projects
+        return featuredProjects.slice(0, 6); // Show max 4 projects
     }
   };
 
@@ -183,8 +206,12 @@ const Projects = () => {
       'Node.js': '#339933',
       'Python': '#3776AB',
       'HTML': '#E34F26',
+      'HTML5': '#E34F26',
       'CSS': '#1572B6',
-      'SCSS': '#CF649A'
+      'CSS3': '#1572B6',
+      'SCSS': '#CF649A',
+      'Tailwind CSS': '#06B6D4',
+      'Hooks': '#61DAFB'
     };
     return colors[tech] || '#666';
   };
@@ -227,6 +254,19 @@ const Projects = () => {
               {project.title}
             </h3>
             <div className="project-card__links">
+              {project.github && (
+                <motion.a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="project-card__link"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <FiGithub />
+                </motion.a>
+              )}
               {project.demo && (
                 <motion.a
                   href={project.demo}
