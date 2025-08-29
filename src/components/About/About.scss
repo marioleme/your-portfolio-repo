@@ -264,6 +264,14 @@
     }
   }
 
+  &__year-text {
+    width: 45px;
+  }
+
+  &__year__text {
+    width: 45px;
+  }
+
   &__content {
     flex: 1;
     background-color: var(--background-color);

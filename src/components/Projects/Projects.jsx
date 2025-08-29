@@ -1,9 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FiGithub, FiExternalLink, FiStar, FiGitBranch, FiCode, FiCalendar, FiEye } from 'react-icons/fi';
+import { FiGithub, FiExternalLink, FiCode, FiCalendar } from 'react-icons/fi';
 import { useInView } from 'react-intersection-observer';
 import { useAppContext } from '../../context/AppContext';
-import { useRepositories } from '../../hooks/useGitHub';
 import './Projects.scss';
 
 const Projects = () => {
@@ -16,14 +15,53 @@ const Projects = () => {
     triggerOnce: true
   });
 
-  // Fetch GitHub repositories
-  const { data: repositories, loading: reposLoading, error: reposError } = useRepositories(
-    state.githubUsername, 
-    4
-  );
-
-  // Featured projects (you can customize this)
+  // Featured projects (manual control - no GitHub API dependency)
   const featuredProjects = [
+    {
+      id: 'calculadora-react',
+      title: 'Calculadora React',
+      description: 'Calculadora desenvolvida em React com funcionalidades completas de operações matemáticas, interface intuitiva e responsiva',
+      technologies: ['React', 'JavaScript', 'CSS', 'HTML'],
+      category: 'react',
+      featured: true,
+      highlights: ['Interface responsiva', 'Operações matemáticas', 'Design moderno'],
+      demo: 'https://calculadora-react-mario.netlify.app',
+      image: '/src/assets/images/projects/calculadora-react.jpg' // Substitua pelo nome da sua imagem
+    },
+    {
+      id: 'crud-supabase',
+      title: 'CRUD com Supabase',
+      description: 'Aplicação CRUD completa desenvolvida com React e Supabase, incluindo autenticação, gerenciamento de dados em tempo real e interface moderna',
+      technologies: ['React', 'Supabase', 'JavaScript', 'CSS'],
+      category: 'fullstack',
+      featured: true,
+      highlights: ['Autenticação', 'Tempo real', 'Database cloud'],
+      demo: 'https://crud-com-supabase.netlify.app',
+      image: '/src/assets/images/projects/CRUD-COM-SUPABASE.png'
+    },
+    {
+      id: 'react-context-api',
+      title: 'React Context API',
+      description: 'Aplicação demonstrando o uso avançado do Context API do React para gerenciamento de estado global, incluindo boas práticas e padrões de desenvolvimento',
+      technologies: ['React', 'Context API', 'JavaScript', 'CSS'],
+      category: 'react',
+      featured: true,
+      highlights: ['Estado global', 'Context API', 'Boas práticas'],
+      demo: 'https://github.com/marioleme/ReactContextApi',
+      image: '/src/assets/images/projects/meteora-app.gif'
+    },
+    {
+      id: 'cobuccio',
+      title: 'Cobuccio - Carteira',
+      description: 'Aplicação web moderna desenvolvida com tecnologias front-end avançadas, focada em interface intuitiva e experiência do usuário otimizada',
+      technologies: ['JavaScript', 'HTML', 'CSS', 'Web APIs'],
+      category: 'frontend',
+      featured: true,
+      highlights: ['Interface moderna', 'UX otimizada', 'Web APIs'],
+      demo: 'https://carteira-financeira-nextjs.netlify.app/auth',
+      image: '/src/assets/images/projects/carteira.png'
+    },
+    /*
     {
       id: 'portfolio-react',
       title: 'Portfolio React',
@@ -32,7 +70,8 @@ const Projects = () => {
       category: 'react',
       featured: true,
       highlights: ['Animações fluidas', 'Design responsivo', 'Integração GitHub'],
-      demo: 'https://seu-portfolio.vercel.app'
+      demo: 'https://seu-portfolio.vercel.app',
+      image: '/src/assets/images/projects/portfolio.png' // Substitua pelo nome da sua imagem
     },
     {
       id: 'ecommerce-app',
@@ -42,49 +81,86 @@ const Projects = () => {
       category: 'fullstack',
       featured: true,
       highlights: ['Carrinho de compras', 'Pagamento online', 'Dashboard admin'],
-      demo: 'https://ecommerce-demo.vercel.app'
+      demo: 'https://ecommerce-demo.vercel.app',
+      image: '/src/assets/images/projects/ecommerce.png' // Substitua pelo nome da sua imagem
+    },
+    {
+      id: 'task-manager',
+      title: 'Task Manager Pro',
+      description: 'Sistema de gerenciamento de tarefas com colaboração em tempo real e notificações',
+      technologies: ['React', 'TypeScript', 'Socket.io', 'Node.js'],
+      category: 'react',
+      featured: true,
+      highlights: ['Tempo real', 'Colaboração', 'Notificações push'],
+      demo: 'https://taskmanager-pro.vercel.app',
+      image: '/src/assets/images/projects/task-manager.png' // Substitua pelo nome da sua imagem
+    },
+    {
+      id: 'dashboard-analytics',
+      title: 'Analytics Dashboard',
+      description: 'Dashboard interativo para análise de dados com gráficos dinâmicos e relatórios',
+      technologies: ['React', 'D3.js', 'Chart.js', 'API REST'],
+      category: 'react',
+      featured: true,
+      highlights: ['Gráficos interativos', 'Relatórios PDF', 'Filtros avançados'],
+      demo: 'https://analytics-dashboard.vercel.app'
+    },
+    {
+      id: 'chat-realtime',
+      title: 'Chat em Tempo Real',
+      description: 'Aplicação de chat com salas, emojis, compartilhamento de arquivos e videochamadas',
+      technologies: ['React', 'Socket.io', 'WebRTC', 'Express'],
+      category: 'fullstack',
+      featured: true,
+      highlights: ['Videochamadas', 'Salas privadas', 'Compartilhamento'],
+      demo: 'https://chat-realtime.vercel.app'
+    },
+    {
+      id: 'weather-app',
+      title: 'Weather Forecast',
+      description: 'App de previsão do tempo com geolocalização, mapas interativos e alertas',
+      technologies: ['React', 'API REST', 'Maps API', 'PWA'],
+      category: 'react',
+      featured: true,
+      highlights: ['Geolocalização', 'Mapas interativos', 'PWA'],
+      demo: 'https://weather-forecast.vercel.app'
+    },
+    {
+      id: 'expense-tracker',
+      title: 'Expense Tracker',
+      description: 'Controle financeiro pessoal com categorização, metas e relatórios detalhados',
+      technologies: ['React', 'Chart.js', 'localStorage', 'Material-UI'],
+      category: 'react',
+      featured: true,
+      highlights: ['Metas financeiras', 'Categorização', 'Relatórios'],
+      demo: 'https://expense-tracker.vercel.app'
     }
+      */
   ];
 
-  // Filter options
+  // Filter options based on manual projects only
   const filterOptions = [
-    { id: 'all', label: 'Todos', count: repositories?.length || 0 },
-    { id: 'react', label: 'React', count: repositories?.filter(repo => 
-      repo.language === 'JavaScript' || repo.language === 'TypeScript'
-    ).length || 0 },
-    { id: 'javascript', label: 'JavaScript', count: repositories?.filter(repo => 
-      repo.language === 'JavaScript'
-    ).length || 0 },
+    { id: 'all', label: 'Todos', count: featuredProjects.length },
+    { id: 'react', label: 'React', count: featuredProjects.filter(p => p.category === 'react').length },
+    { id: 'fullstack', label: 'Full Stack', count: featuredProjects.filter(p => p.category === 'fullstack').length },
+    { id: 'frontend', label: 'Frontend', count: featuredProjects.filter(p => p.category === 'frontend').length },
     { id: 'featured', label: 'Destaque', count: featuredProjects.length }
   ];
 
-  // Filter repositories based on active filter
+  // Filter projects based on active filter
   const getFilteredProjects = () => {
-    if (!repositories) return featuredProjects;
-
-    let filtered = [...repositories];
-    
     switch (activeFilter) {
       case 'react':
-        filtered = repositories.filter(repo => 
-          repo.language === 'JavaScript' || repo.language === 'TypeScript'
-        );
-        break;
-      case 'javascript':
-        filtered = repositories.filter(repo => repo.language === 'JavaScript');
-        break;
+        return featuredProjects.filter(project => project.category === 'react').slice(0, 4);
+      case 'fullstack':
+        return featuredProjects.filter(project => project.category === 'fullstack').slice(0, 4);
+      case 'frontend':
+        return featuredProjects.filter(project => project.category === 'frontend').slice(0, 4);
       case 'featured':
-        return featuredProjects;
+      case 'all':
       default:
-        break;
+        return featuredProjects.slice(0, 4); // Show max 4 projects
     }
-
-    // Combine with featured projects if showing all
-    if (activeFilter === 'all') {
-      return [...featuredProjects, ...filtered.slice(0, 2)].slice(0, 4);
-    }
-
-    return filtered.slice(0, 4);
   };
 
   const filteredProjects = getFilteredProjects();
@@ -114,7 +190,6 @@ const Projects = () => {
   };
 
   const ProjectCard = ({ project, index }) => {
-    const isRepo = project.clone_url; // GitHub repo has clone_url
     const isFeatured = project.featured;
 
     return (
@@ -128,9 +203,18 @@ const Projects = () => {
       >
         {/* Project Image/Preview */}
         <div className="project-card__image">
-          <div className="project-card__image-placeholder">
-            <FiCode size={48} />
-          </div>
+          {project.image ? (
+            <img 
+              src={project.image} 
+              alt={project.title}
+              className="project-card__image-img"
+              loading="lazy"
+            />
+          ) : (
+            <div className="project-card__image-placeholder">
+              <FiCode size={48} />
+            </div>
+          )}
           {isFeatured && (
             <div className="project-card__badge">Destaque</div>
           )}
@@ -140,25 +224,12 @@ const Projects = () => {
         <div className="project-card__content">
           <div className="project-card__header">
             <h3 className="project-card__title">
-              {isRepo ? project.name.replace(/-/g, ' ') : project.title}
+              {project.title}
             </h3>
             <div className="project-card__links">
-              {isRepo && (
+              {project.demo && (
                 <motion.a
-                  href={project.html_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="project-card__link"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <FiGithub />
-                </motion.a>
-              )}
-              {(project.homepage || project.demo) && (
-                <motion.a
-                  href={project.homepage || project.demo}
+                  href={project.demo}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="project-card__link"
@@ -173,50 +244,21 @@ const Projects = () => {
           </div>
 
           <p className="project-card__description">
-            {project.description || `Projeto desenvolvido com ${project.language || 'JavaScript'}`}
+            {project.description}
           </p>
 
           {/* Technologies */}
           <div className="project-card__technologies">
-            {isRepo ? (
-              project.language && (
-                <span 
-                  className="project-card__tech"
-                  style={{ backgroundColor: getTechColor(project.language) }}
-                >
-                  {project.language}
-                </span>
-              )
-            ) : (
-              project.technologies?.map((tech) => (
-                <span 
-                  key={tech}
-                  className="project-card__tech"
-                  style={{ backgroundColor: getTechColor(tech) }}
-                >
-                  {tech}
-                </span>
-              ))
-            )}
+            {project.technologies?.map((tech) => (
+              <span 
+                key={tech}
+                className="project-card__tech"
+                style={{ backgroundColor: getTechColor(tech) }}
+              >
+                {tech}
+              </span>
+            ))}
           </div>
-
-          {/* Stats */}
-          {isRepo && (
-            <div className="project-card__stats">
-              <div className="project-card__stat">
-                <FiStar />
-                <span>{project.stargazers_count}</span>
-              </div>
-              <div className="project-card__stat">
-                <FiGitBranch />
-                <span>{project.forks_count}</span>
-              </div>
-              <div className="project-card__stat">
-                <FiCalendar />
-                <span>{formatDate(project.updated_at)}</span>
-              </div>
-            </div>
-          )}
 
           {/* Highlights for featured projects */}
           {project.highlights && (
@@ -275,24 +317,6 @@ const Projects = () => {
           ))}
         </motion.div>
 
-        {/* Loading State */}
-        {reposLoading && (
-          <div className="projects__loading">
-            <div className="loading-spinner">
-              <FiCode className="loading-spinner__icon" />
-              <span>Carregando projetos do GitHub...</span>
-            </div>
-          </div>
-        )}
-
-        {/* Error State */}
-        {reposError && (
-          <div className="projects__error">
-            <p>Erro ao carregar projetos: {reposError}</p>
-            <p>Mostrando projetos em destaque:</p>
-          </div>
-        )}
-
         {/* Projects Grid */}
         <motion.div
           className="projects__grid"
@@ -302,14 +326,14 @@ const Projects = () => {
         >
           {filteredProjects.map((project, index) => (
             <ProjectCard
-              key={project.id || project.name}
+              key={project.id}
               project={project}
               index={index}
             />
           ))}
         </motion.div>
 
-        {/* View All GitHub Link */}
+        {/* Call to Action */}
         <motion.div
           className="projects__cta"
           initial={{ opacity: 0, y: 20 }}
@@ -325,7 +349,7 @@ const Projects = () => {
             whileTap={{ scale: 0.95 }}
           >
             <FiGithub />
-            Ver todos no GitHub
+            Ver mais projetos
           </motion.a>
         </motion.div>
       </div>
