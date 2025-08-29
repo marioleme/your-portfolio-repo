@@ -1,0 +1,19 @@
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: var(--space-2xl);
+
+  &__icon {
+    font-size: var(--font-size-4xl);
+    color: var(--primary-color);
+    margin-bottom: var(--space-lg);
+  }
+
+  &__text {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+  }
+}
