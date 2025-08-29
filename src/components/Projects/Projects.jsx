@@ -37,7 +37,7 @@ const Projects = () => {
       featured: true,
       highlights: ['Autenticação', 'Tempo real', 'Database cloud'],
       demo: 'https://crud-com-supabase.netlify.app',
-      image: 'https://github.com/marioleme/your-portfolio-repo/blob/main/src/assets/images/projects/CRUD-COM-SUPABASE.png'
+      image: 'https://raw.githubusercontent.com/marioleme/your-portfolio-repo/refs/heads/main/src/assets/images/projects/CRUD-COM-SUPABASE.png'
     },
     {
       id: 'react-context-api',
