@@ -26,7 +26,7 @@ const Projects = () => {
       featured: true,
       highlights: ['Interface responsiva', 'Operações matemáticas', 'Design moderno'],
       demo: 'https://calculadora-react-mario.netlify.app',
-      image: '/src/assets/images/projects/calculadora-react.jpg' // Substitua pelo nome da sua imagem
+      image: '/assets/images/projects/calculadora-react.jpg' // Substitua pelo nome da sua imagem
     },
     {
       id: 'crud-supabase',
@@ -37,7 +37,7 @@ const Projects = () => {
       featured: true,
       highlights: ['Autenticação', 'Tempo real', 'Database cloud'],
       demo: 'https://crud-com-supabase.netlify.app',
-      image: '/src/assets/images/projects/CRUD-COM-SUPABASE.png'
+      image: '/assets/images/projects/CRUD-COM-SUPABASE.png'
     },
     {
       id: 'react-context-api',
@@ -48,7 +48,7 @@ const Projects = () => {
       featured: true,
       highlights: ['Estado global', 'Context API', 'Boas práticas'],
       demo: 'https://github.com/marioleme/ReactContextApi',
-      image: '/src/assets/images/projects/meteora-app.gif'
+      image: '/assets/images/projects/meteora-app.gif'
     },
     {
       id: 'cobuccio',
@@ -59,7 +59,7 @@ const Projects = () => {
       featured: true,
       highlights: ['Interface moderna', 'UX otimizada', 'Web APIs'],
       demo: 'https://carteira-financeira-nextjs.netlify.app/auth',
-      image: '/src/assets/images/projects/carteira.png'
+      image: '/assets/images/projects/carteira.png'
     },
     /*
     {
