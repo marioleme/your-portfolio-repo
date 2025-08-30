@@ -1,0 +1,12 @@
+IMAGE PLACEHOLDER: react-migrando-typescript.png
+
+This file serves as a reminder that you need to add the project image:
+- Image name: react-migrando-typescript.png
+- Location: public/assets/images/projects/react-migrando-typescript.png
+- Recommended size: 800x400px or similar aspect ratio
+- Format: PNG, JPG, or WEBP
+
+You can take a screenshot of the live demo at:
+https://react-migrando-typescript.netlify.app
+
+Or use any representative image of the project interface.
