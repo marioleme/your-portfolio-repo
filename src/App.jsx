@@ -1,15 +1,21 @@
-import { useEffect } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import { AppProvider, useAppContext } from './context/AppContext';
 import { useScrollPosition } from './hooks/useScroll';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-// Import components (will create these next)
+// Import critical components (above the fold)
 import Header from './components/Header/Header';
 import Hero from './components/Hero/Hero';
-import Projects from './components/Projects/Projects';
-import Skills from './components/Skills/Skills';
-import About from './components/About/About';
-import Contact from './components/Contact/Contact';
 import LoadingSpinner from './components/LoadingSpinner/LoadingSpinner';
+import ScrollProgress from './components/ScrollProgress/ScrollProgress';
+import BackToTop from './components/BackToTop/BackToTop';
+
+// Lazy load components below the fold for better performance
+const Projects = lazy(() => import('./components/Projects/Projects'));
+const Skills = lazy(() => import('./components/Skills/Skills'));
+const About = lazy(() => import('./components/About/About'));
+const Contact = lazy(() => import('./components/Contact/Contact'));
 
 // Main app content component
 const AppContent = () => {
@@ -27,14 +33,35 @@ const AppContent = () => {
 
   return (
     <div className="app">
+      {/* Skip Navigation for accessibility */}
+      <a href="#main-content" className="skip-to-content">
+        Pular para o conteúdo principal
+      </a>
+      
+      <ScrollProgress />
       <Header />
-      <main>
+      <main id="main-content">
         <Hero />
-        <Projects />
-        <Skills />
-        <About />
-        <Contact />
+        <Suspense fallback={<LoadingSpinner />}>
+          <Projects />
+          <Skills />
+          <About />
+          <Contact />
+        </Suspense>
       </main>
+      <BackToTop />
+      <ToastContainer
+        position="bottom-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme={state.theme}
+      />
     </div>
   );
 };

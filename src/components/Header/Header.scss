@@ -33,12 +33,23 @@
   }
 
   &__logo {
+    background: transparent;
+    
     &-text {
       font-size: var(--font-size-xl);
       font-weight: var(--font-weight-bold);
       color: var(--primary-color);
       cursor: pointer;
       font-family: 'Fira Code', monospace;
+    }
+
+    &-img {
+      height: 70px;
+      width: auto;
+      cursor: pointer;
+      display: block;
+      background: transparent;
+      object-fit: contain;
     }
   }
 

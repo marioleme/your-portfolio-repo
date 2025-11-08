@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { FiMenu, FiX, FiSun, FiMoon, FiGithub, FiLinkedin } from 'react-icons/fi';
 import { useAppContext } from '../../context/AppContext';
 import { useSmoothScroll } from '../../hooks/useScroll';
+import logo2 from '../../assets/images/logo2.png';
 import './Header.scss';
 
 const Header = () => {
@@ -57,9 +58,7 @@ const Header = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <span className="header__logo-text">
-            {'<Dev/>'}
-          </span>
+          <img src={logo2} alt="Dev Logo" className="header__logo-img" />
         </motion.div>
 
         {/* Desktop Navigation */}

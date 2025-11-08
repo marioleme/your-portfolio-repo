@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { FiMail, FiUser, FiMessageSquare, FiSend, FiCheckCircle, FiAlertCircle } from 'react-icons/fi';
 import { useForm } from 'react-hook-form';
 import { useInView } from 'react-intersection-observer';
+import { toast } from 'react-toastify';
+import { sendEmail } from '../../services/emailService';
 import './Contact.scss';
 
 const Contact = () => {
@@ -23,17 +25,33 @@ const Contact = () => {
     setSubmitStatus('loading');
     
     try {
-      // Simulate form submission
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      // Envia o email usando EmailJS
+      const result = await sendEmail(data);
       
-      console.log('Form data:', data);
-      setSubmitStatus('success');
-      reset();
+      if (result.success) {
+        console.log('Email enviado:', result);
+        setSubmitStatus('success');
+        reset();
+        
+        // Show success toast
+        toast.success('Mensagem enviada com sucesso! Entrarei em contato em breve.', {
+          icon: '🚀'
+        });
+      } else {
+        throw new Error(result.message);
+      }
       
       // Reset status after 3 seconds
       setTimeout(() => setSubmitStatus('idle'), 3000);
     } catch (error) {
+      console.error('Erro ao enviar:', error);
       setSubmitStatus('error');
+      
+      // Show error toast
+      toast.error('Erro ao enviar mensagem. Tente novamente mais tarde.', {
+        icon: '❌'
+      });
+      
       setTimeout(() => setSubmitStatus('idle'), 3000);
     }
   };

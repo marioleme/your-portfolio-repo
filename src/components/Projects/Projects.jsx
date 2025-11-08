@@ -84,18 +84,30 @@ const Projects = () => {
       github: 'https://github.com/marioleme/tailwind-css-estilizando',
       image: '/assets/images/projects/tailwind-desktop.png'
     },
-    /*
+    
     {
-      id: 'portfolio-react',
-      title: 'Portfolio React',
-      description: 'Portfolio pessoal desenvolvido com React, Framer Motion e integração com API do GitHub',
-      technologies: ['React', 'SCSS', 'Framer Motion', 'GitHub API'],
+      id: 'movie-react',
+      title: 'Movie React',
+      description: 'Aplicação de busca de filmes desenvolvida com React, utilizando a API do The Movie Database (TMDb)',
+      technologies: ['React', 'SCSS', 'Axios', 'TMDb API'],
       category: 'react',
       featured: true,
       highlights: ['Animações fluidas', 'Design responsivo', 'Integração GitHub'],
-      demo: 'https://seu-portfolio.vercel.app',
-      image: '/src/assets/images/projects/portfolio.png' // Substitua pelo nome da sua imagem
+      demo: 'https://catalogo-de-filmes.weboliveira.top',
+      image: '/assets/images/projects/movie-react.gif'
     },
+    {
+      id: 'petshop-react-router',
+      title: 'PetShop - React Router',
+      description: 'Aplicação web de PetShop desenvolvida com React Router para navegação em SPA (Single Page Application), demonstrando rotas dinâmicas, navegação programática e boas práticas de estruturação de rotas',
+      technologies: ['React', 'React Router', 'JavaScript', 'CSS'],
+      category: 'react',
+      featured: true,
+      highlights: ['React Router', 'Navegação SPA', 'Rotas dinâmicas'],
+      github: 'https://github.com/marioleme/React-Router-Navega-o-em-uma-SPA/tree/main/petshop',
+      image: '/assets/images/projects/petshop.gif'
+    },
+    /*
     {
       id: 'ecommerce-app',
       title: 'E-commerce App',
@@ -182,7 +194,7 @@ const Projects = () => {
       case 'featured':
       case 'all':
       default:
-        return featuredProjects.slice(0, 6); // Show max 4 projects
+        return featuredProjects.slice(0, 8); // Show max 4 projects
     }
   };
 
@@ -214,6 +226,11 @@ const Projects = () => {
       'Hooks': '#61DAFB'
     };
     return colors[tech] || '#666';
+  };
+
+  // Close modal
+  const closeModal = () => {
+    setSelectedProject(null);
   };
 
   const ProjectCard = ({ project, index }) => {
@@ -393,6 +410,113 @@ const Projects = () => {
           </motion.a>
         </motion.div>
       </div>
+
+      {/* Project Modal */}
+      {selectedProject && (
+        <motion.div
+          className="project-modal"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={closeModal}
+        >
+          <motion.div
+            className="project-modal__content"
+            initial={{ scale: 0.8, y: 50 }}
+            animate={{ scale: 1, y: 0 }}
+            exit={{ scale: 0.8, y: 50 }}
+            transition={{ duration: 0.3 }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header */}
+            <div className="project-modal__header">
+              <h3 className="project-modal__title">{selectedProject.title}</h3>
+              <button 
+                className="project-modal__close"
+                onClick={closeModal}
+                aria-label="Fechar modal"
+              >
+                ✕
+              </button>
+            </div>
+
+            {/* Modal Image */}
+            {selectedProject.image && (
+              <div className="project-modal__image">
+                <img 
+                  src={selectedProject.image} 
+                  alt={selectedProject.title}
+                />
+              </div>
+            )}
+
+            {/* Modal Body */}
+            <div className="project-modal__body">
+              <p className="project-modal__description">
+                {selectedProject.description}
+              </p>
+
+              {/* Technologies */}
+              <div className="project-modal__section">
+                <h4 className="project-modal__section-title">Tecnologias</h4>
+                <div className="project-modal__technologies">
+                  {selectedProject.technologies?.map((tech) => (
+                    <span 
+                      key={tech}
+                      className="project-modal__tech"
+                      style={{ backgroundColor: getTechColor(tech) }}
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Highlights */}
+              {selectedProject.highlights && (
+                <div className="project-modal__section">
+                  <h4 className="project-modal__section-title">Destaques</h4>
+                  <ul className="project-modal__highlights">
+                    {selectedProject.highlights.map((highlight, idx) => (
+                      <li key={idx}>{highlight}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Action Buttons */}
+              <div className="project-modal__actions">
+                {selectedProject.demo && (
+                  <motion.a
+                    href={selectedProject.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-primary"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <FiExternalLink />
+                    Ver Projeto
+                  </motion.a>
+                )}
+                {selectedProject.github && (
+                  <motion.a
+                    href={selectedProject.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-secondary"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <FiGithub />
+                    Ver Código
+                  </motion.a>
+                )}
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
     </section>
   );
 };

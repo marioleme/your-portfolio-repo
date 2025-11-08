@@ -73,7 +73,7 @@ const Hero = () => {
               animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              <span className="hero__name-highlight">Mario Gonçalves</span>
+              <span className="hero__name-highlight">Mario Oliveira</span>
             </motion.h1>
 
             {/* Typing Animation */}
@@ -231,7 +231,7 @@ const Hero = () => {
         </motion.div>
 
         {/* Background Animation */}
-        <div className="hero__background">
+        <div className="hero__background" >
           <motion.div
             className="hero__bg-element hero__bg-element--1"
             animate={{ 
