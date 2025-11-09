@@ -48,12 +48,19 @@ export const sendEmail = async (formData) => {
     }
 
     const templateParams = {
-      from_name: formData.name,
-      from_email: formData.email,
-      message: formData.message,
-      to_name: 'Mario Oliveira', // Seu nome
-      reply_to: formData.email
-    };
+  from_name: formData.name,
+  from_email: formData.email,
+  message: formData.message,
+  to_name: 'Mario Oliveira',
+  reply_to: formData.email,
+  custom_date: new Date().toLocaleDateString('pt-BR', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  }) // → "08/11/2025, 18:30"
+};
 
     const response = await emailjs.send(
       EMAILJS_CONFIG.serviceId,

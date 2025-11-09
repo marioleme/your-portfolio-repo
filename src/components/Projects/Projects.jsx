@@ -3,10 +3,12 @@ import { motion } from 'framer-motion';
 import { FiGithub, FiExternalLink, FiCode, FiCalendar } from 'react-icons/fi';
 import { useInView } from 'react-intersection-observer';
 import { useAppContext } from '../../context/AppContext';
+import { translations } from '../../data/translations';
 import './Projects.scss';
 
 const Projects = () => {
   const { state } = useAppContext();
+  const t = translations[state.language];
   const [activeFilter, setActiveFilter] = useState('all');
   const [selectedProject, setSelectedProject] = useState(null);
   
@@ -15,95 +17,85 @@ const Projects = () => {
     triggerOnce: true
   });
 
+  // Get project details with translations
+  const getProjectDetails = (projectId) => {
+    const details = t.projectDetails[projectId];
+    return details || { title: projectId, description: '', highlights: [] };
+  };
+
   // Featured projects (manual control - no GitHub API dependency)
   const featuredProjects = [
     {
       id: 'calculadora-react',
-      title: 'Calculadora React',
-      description: 'Calculadora desenvolvida em React com funcionalidades completas de operações matemáticas, interface intuitiva e responsiva',
+      ...getProjectDetails('calculadora-react'),
       technologies: ['React', 'JavaScript', 'CSS', 'HTML'],
       category: 'react',
       featured: true,
-      highlights: ['Interface responsiva', 'Operações matemáticas', 'Design moderno'],
       demo: 'https://calculadora-react-mario.netlify.app',
       image: '/assets/images/projects/calculadora-react.jpg'
     },
     {
       id: 'crud-supabase',
-      title: 'CRUD com Supabase',
-      description: 'Aplicação CRUD completa desenvolvida com React e Supabase, incluindo autenticação, gerenciamento de dados em tempo real e interface moderna',
+      ...getProjectDetails('crud-supabase'),
       technologies: ['React', 'Supabase', 'JavaScript', 'CSS'],
       category: 'fullstack',
       featured: true,
-      highlights: ['Autenticação', 'Tempo real', 'Database cloud'],
       demo: 'https://crud-com-supabase.netlify.app',
       image: '/assets/images/projects/CRUD-COM-SUPABASE.png'
     },
     {
       id: 'react-context-api',
-      title: 'React Context API',
-      description: 'Aplicação demonstrando o uso avançado do Context API do React para gerenciamento de estado global, incluindo boas práticas e padrões de desenvolvimento',
+      ...getProjectDetails('react-context-api'),
       technologies: ['React', 'Context API', 'JavaScript', 'CSS'],
       category: 'react',
       featured: true,
-      highlights: ['Estado global', 'Context API', 'Boas práticas'],
       demo: 'https://github.com/marioleme/ReactContextApi',
       image: '/assets/images/projects/meteora-app.gif'
     },
     {
       id: 'cobuccio',
-      title: 'Cobuccio - Carteira',
-      description: 'Aplicação web moderna desenvolvida com tecnologias front-end avançadas, focada em interface intuitiva e experiência do usuário otimizada',
+      ...getProjectDetails('cobuccio'),
       technologies: ['JavaScript', 'HTML', 'CSS', 'Web APIs'],
       category: 'frontend',
       featured: true,
-      highlights: ['Interface moderna', 'UX otimizada', 'Web APIs'],
       demo: 'https://carteira-financeira-nextjs.netlify.app/auth',
       image: '/assets/images/projects/carteira.png'
     },
     {
       id: 'react-migrando-typescript',
-      title: 'Organo - Migração para TypeScript',
-      description: 'Projeto de migração de uma aplicação React de JavaScript para TypeScript, demonstrando boas práticas de tipagem e refatoração de código',
+      ...getProjectDetails('react-migrando-typescript'),
       technologies: ['React', 'TypeScript', 'JavaScript', 'Hooks'],
       category: 'react',
       featured: true,
-      highlights: ['Migração JS para TS', 'Tipagem estática', 'Refatoração'],
       demo: 'https://react-migrando-typescript.netlify.app',
       github: 'https://github.com/marioleme/react-migrando-typescript',
       image: '/assets/images/projects/react-migrando-typescript.png'
     },
     {
       id: 'tailwind-css-estilizando',
-      title: 'Tailwind CSS - Newsletter Component',
-      description: 'Projeto de estudo do framework Tailwind CSS focado na criação de componentes responsivos, incluindo newsletter signup com animações customizadas e design moderno',
+      ...getProjectDetails('tailwind-css-estilizando'),
       technologies: ['HTML5', 'Tailwind CSS', 'CSS3', 'JavaScript'],
       category: 'frontend',
       featured: true,
-      highlights: ['Design responsivo', 'Animações customizadas', 'Utility-first CSS'],
       github: 'https://github.com/marioleme/tailwind-css-estilizando',
       image: '/assets/images/projects/tailwind-desktop.png'
     },
     
     {
       id: 'movie-react',
-      title: 'Movie React',
-      description: 'Aplicação de busca de filmes desenvolvida com React, utilizando a API do The Movie Database (TMDb)',
+      ...getProjectDetails('movie-react'),
       technologies: ['React', 'SCSS', 'Axios', 'TMDb API'],
       category: 'react',
       featured: true,
-      highlights: ['Animações fluidas', 'Design responsivo', 'Integração GitHub'],
       demo: 'https://catalogo-de-filmes.weboliveira.top',
       image: '/assets/images/projects/movie-react.gif'
     },
     {
       id: 'petshop-react-router',
-      title: 'PetShop - React Router',
-      description: 'Aplicação web de PetShop desenvolvida com React Router para navegação em SPA (Single Page Application), demonstrando rotas dinâmicas, navegação programática e boas práticas de estruturação de rotas',
+      ...getProjectDetails('petshop-react-router'),
       technologies: ['React', 'React Router', 'JavaScript', 'CSS'],
       category: 'react',
       featured: true,
-      highlights: ['React Router', 'Navegação SPA', 'Rotas dinâmicas'],
       github: 'https://github.com/marioleme/React-Router-Navega-o-em-uma-SPA/tree/main/petshop',
       image: '/assets/images/projects/petshop.gif'
     },
@@ -342,9 +334,9 @@ const Projects = () => {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="projects__title">Projetos</h2>
+          <h2 className="projects__title">{t.projects.title}</h2>
           <p className="projects__subtitle">
-            Uma seleção dos meus trabalhos mais recentes e projetos em destaque
+            {t.projects.subtitle}
           </p>
         </motion.div>
 
@@ -458,7 +450,7 @@ const Projects = () => {
 
               {/* Technologies */}
               <div className="project-modal__section">
-                <h4 className="project-modal__section-title">Tecnologias</h4>
+                <h4 className="project-modal__section-title">{t.projects.technologies}</h4>
                 <div className="project-modal__technologies">
                   {selectedProject.technologies?.map((tech) => (
                     <span 
@@ -496,7 +488,7 @@ const Projects = () => {
                     whileTap={{ scale: 0.95 }}
                   >
                     <FiExternalLink />
-                    Ver Projeto
+                    {t.projects.viewDemo}
                   </motion.a>
                 )}
                 {selectedProject.github && (
@@ -509,7 +501,7 @@ const Projects = () => {
                     whileTap={{ scale: 0.95 }}
                   >
                     <FiGithub />
-                    Ver Código
+                    {t.projects.viewCode}
                   </motion.a>
                 )}
               </div>

@@ -5,22 +5,19 @@ import { SiReact, SiJavascript, SiTypescript, SiHtml5, SiCss3, SiNodedotjs } fro
 import { useTypingAnimation } from '../../hooks/useTypingAnimation';
 import { useAppContext } from '../../context/AppContext';
 import { useSmoothScroll } from '../../hooks/useScroll';
+import { translations } from '../../data/translations';
 import './Hero.scss';
 
 const Hero = () => {
   const { state } = useAppContext();
   const { scrollToSection } = useSmoothScroll();
   const [isVisible, setIsVisible] = useState(false);
+  
+  // Get current language translations
+  const t = translations[state.language];
 
-  // Typing animation texts
-  const typingTexts = [
-    'Desenvolvedor Frontend',
-    'React Developer',
-    'JavaScript Expert',
-    'UI/UX Enthusiast'
-  ];
-
-  const { currentText, isTyping } = useTypingAnimation(typingTexts, 150, 2000);
+  // Typing animation texts from translations
+  const { currentText, isTyping } = useTypingAnimation(t.hero.titles, 150, 2000);
 
   // Technology stack
   const techStack = [
@@ -63,7 +60,7 @@ const Hero = () => {
               animate={{ opacity: isVisible ? 1 : 0, x: isVisible ? 0 : -30 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              Olá, eu sou
+              {t.hero.greeting}
             </motion.p>
 
             {/* Name */}
@@ -73,7 +70,7 @@ const Hero = () => {
               animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              <span className="hero__name-highlight">Mario Oliveira</span>
+              <span className="hero__name-highlight">{t.hero.name}</span>
             </motion.h1>
 
             {/* Typing Animation */}
@@ -96,9 +93,7 @@ const Hero = () => {
               animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
               transition={{ duration: 0.6, delay: 0.7 }}
             >
-              Especializado em criar experiências web modernas e responsivas 
-              com React, JavaScript e as mais recentes tecnologias frontend. 
-              Transformo ideias em interfaces elegantes e funcionais.
+              {t.hero.description}
             </motion.p>
 
             {/* CTA Buttons */}
@@ -114,19 +109,22 @@ const Hero = () => {
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Ver Projetos
+                {t.hero.viewProjects}
               </motion.button>
 
-              <motion.button
+              <motion.a
+                href="https://drive.google.com/file/d/1XLbCxjgMEN2-n-8sJKvnRq0tSQgWe1LU/view"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn btn-secondary hero__cta-button"
-                onClick={handleDownloadCV}
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <FiDownload />
-                Download CV
-              </motion.button>
+                {t.hero.downloadCV}
+              </motion.a>
             </motion.div>
+            
 
             {/* Social Links */}
             <motion.div
@@ -176,7 +174,7 @@ const Hero = () => {
             animate={{ opacity: isVisible ? 1 : 0, x: isVisible ? 0 : 50 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <h3 className="hero__tech-title">Tech Stack</h3>
+            <h3 className="hero__tech-title">{t.hero.techStack}</h3>
             <div className="hero__tech-grid">
               {techStack.map((tech, index) => (
                 <motion.div
@@ -227,7 +225,7 @@ const Hero = () => {
           >
             <FiChevronDown />
           </motion.button>
-          <span className="hero__scroll-text">Scroll para ver mais</span>
+          <span className="hero__scroll-text">{t.hero.scrollText}</span>
         </motion.div>
 
         {/* Background Animation */}

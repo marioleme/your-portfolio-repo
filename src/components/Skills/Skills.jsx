@@ -3,9 +3,13 @@ import { motion } from 'framer-motion';
 import { FiCode, FiLayers, FiTool } from 'react-icons/fi';
 import { SiReact, SiJavascript, SiTypescript, SiHtml5, SiCss3, SiNodedotjs, SiGit, SiFigma, SiNextdotjs, SiVisualstudiocode, SiMicrosoftazure, SiPhp, SiGulp, SiVercel, SiBootstrap } from 'react-icons/si';
 import { useInView } from 'react-intersection-observer';
+import { useAppContext } from '../../context/AppContext';
+import { translations } from '../../data/translations';
 import './Skills.scss';
 
 const Skills = () => {
+  const { state } = useAppContext();
+  const t = translations[state.language];
   const [activeCategory, setActiveCategory] = useState('frontend');
   const { ref, inView } = useInView({
     threshold: 0.1,
@@ -54,9 +58,9 @@ const Skills = () => {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="skills__title">Habilidades</h2>
+          <h2 className="skills__title">{t.skills.title}</h2>
           <p className="skills__subtitle">
-            Tecnologias e ferramentas que domino no desenvolvimento frontend
+            {t.skills.subtitle}
           </p>
         </motion.div>
 

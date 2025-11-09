@@ -4,6 +4,7 @@ import { createContext, useContext, useReducer } from 'react';
 const initialState = {
   activeSection: 'hero',
   theme: 'dark',
+  language: 'pt', // 'pt' ou 'en'
   isLoading: false,
   githubUsername: 'marioleme', // Username real do GitHub para integração com API
   scrollPosition: 0,
@@ -14,6 +15,7 @@ const initialState = {
 const actionTypes = {
   SET_ACTIVE_SECTION: 'SET_ACTIVE_SECTION',
   TOGGLE_THEME: 'TOGGLE_THEME',
+  TOGGLE_LANGUAGE: 'TOGGLE_LANGUAGE',
   SET_LOADING: 'SET_LOADING',
   SET_SCROLL_POSITION: 'SET_SCROLL_POSITION',
   TOGGLE_MOBILE_MENU: 'TOGGLE_MOBILE_MENU',
@@ -27,6 +29,8 @@ const appReducer = (state, action) => {
       return { ...state, activeSection: action.payload };
     case actionTypes.TOGGLE_THEME:
       return { ...state, theme: state.theme === 'light' ? 'dark' : 'light' };
+    case actionTypes.TOGGLE_LANGUAGE:
+      return { ...state, language: state.language === 'pt' ? 'en' : 'pt' };
     case actionTypes.SET_LOADING:
       return { ...state, isLoading: action.payload };
     case actionTypes.SET_SCROLL_POSITION:
@@ -52,6 +56,8 @@ export const AppProvider = ({ children }) => {
       dispatch({ type: actionTypes.SET_ACTIVE_SECTION, payload: section }),
     toggleTheme: () => 
       dispatch({ type: actionTypes.TOGGLE_THEME }),
+    toggleLanguage: () => 
+      dispatch({ type: actionTypes.TOGGLE_LANGUAGE }),
     setLoading: (loading) => 
       dispatch({ type: actionTypes.SET_LOADING, payload: loading }),
     setScrollPosition: (position) => 

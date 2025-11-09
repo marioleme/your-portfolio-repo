@@ -1,9 +1,14 @@
 import { motion } from 'framer-motion';
 import { FiDownload, FiMapPin, FiCalendar, FiGithub } from 'react-icons/fi';
 import { useInView } from 'react-intersection-observer';
+import { useAppContext } from '../../context/AppContext';
+import { translations } from '../../data/translations';
 import './About.scss';
 
 const About = () => {
+  const { state } = useAppContext();
+  const t = translations[state.language];
+  
   const { ref, inView } = useInView({
     threshold: 0.1,
     triggerOnce: true
@@ -25,23 +30,8 @@ const About = () => {
     }
   };
 
-  const timeline = [
-    {
-      year: '2022 2025',
-      title: 'Front-End | Aggrandize',
-      description: 'Implementação de GA4 e data-layer, otimizando a coleta de dados e análise de performance. Melhoria de desempenho com foco em Core Web Vitals e equalização de ambientes. Desenvolvimento e personalização de páginas B2B e de rastreio em plataformas OSF, utilizando React, KnockoutJS, JavaScript, HTML, LESS, Git e Azure.'
-    },
-    {
-      year: '2018 2022',
-      title: 'Front-End | NSH',
-      description: 'Desenvolvimento de e-commerces do zero, atuando em projetos como RiverShop, Farmácias Especializadas e Sinsa. Customizações em grandes clientes, como Oi e Armazém PB, incluindo melhorias em funcionalidades e métodos de pagamento. Tecnologias: React, KnockoutJS, JavaScript, HTML, LESS, JQuery, Git e Azure.'
-    },
-    {
-      year: '2017 2018',
-      title: 'Front-End | Agência DCS',
-      description: 'Customização de temas WordPress, com destaque para o projeto da Revista Versa. Desenvolvimento de lojas virtuais, como a Ezcore e iniciativas em plataformas verticais. Experiência com VTEX, EzCore e WordPress.'
-    }
-  ];
+  // Get timeline from translations
+  const timeline = t.about.timeline;
 
   return (
     <section id="about" className="about section">
@@ -52,9 +42,9 @@ const About = () => {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="about__title">Sobre Mim</h2>
+          <h2 className="about__title">{t.about.title}</h2>
           <p className="about__subtitle">
-            Conheça mais sobre minha trajetória e paixão pelo desenvolvimento frontend
+            {t.about.subtitle}
           </p>
         </motion.div>
 
@@ -66,30 +56,21 @@ const About = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="about__description">
-              <p>
-                Sou um desenvolvedor frontend apaixonado por criar experiências web 
-                excepcionais. Com foco em React e JavaScript moderno, transformo 
-                ideias em interfaces elegantes e funcionais.
-              </p>
-              <p>
-                Minha jornada no desenvolvimento começou com curiosidade sobre como 
-                os sites funcionam, e hoje tenho o privilégio de construir aplicações 
-                que impactam a vida de milhares de usuários.
-              </p>
-              <p>
-                Estou sempre em busca de novos desafios e oportunidades para aplicar 
-                as melhores práticas de desenvolvimento, performance e acessibilidade.
-              </p>
+              <p>{t.about.description.p1}</p>
+              <p>{t.about.description.p2}</p>
+              <p>{t.about.description.p3}</p>
             </div>
 
-            <motion.button
+                        <motion.a
+              href="/assets/curriculo-mario-oliveira.pdf"
+              download="Mario_Oliveira_CV.pdf"
               className="btn btn-primary about__cv-button"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
               <FiDownload />
-              Download CV
-            </motion.button>
+              {t.about.downloadCV}
+            </motion.a>
           </motion.div>
 
           <motion.div
@@ -101,30 +82,30 @@ const About = () => {
             <div className="github-stats">
               <h3 className="github-stats__title">
                 <FiGithub />
-                Estatísticas GitHub
+                {t.about.githubStats}
               </h3>
               
               <div className="github-stats__grid">
                 <div className="github-stat-item">
                   <span className="github-stat-item__value">{githubStats.totalRepos}</span>
-                  <span className="github-stat-item__label">Repositórios</span>
+                  <span className="github-stat-item__label">{t.about.repositories}</span>
                 </div>
                 <div className="github-stat-item">
                   <span className="github-stat-item__value">{githubStats.totalStars}</span>
-                  <span className="github-stat-item__label">Stars</span>
+                  <span className="github-stat-item__label">{t.about.stars}</span>
                 </div>
                 <div className="github-stat-item">
                   <span className="github-stat-item__value">{githubStats.followers}</span>
-                  <span className="github-stat-item__label">Seguidores</span>
+                  <span className="github-stat-item__label">{t.about.followers}</span>
                 </div>
                 <div className="github-stat-item">
                   <span className="github-stat-item__value">{githubStats.totalForks}</span>
-                  <span className="github-stat-item__label">Forks</span>
+                  <span className="github-stat-item__label">{t.about.forks}</span>
                 </div>
               </div>
 
               <div className="languages">
-                <h4 className="languages__title">Linguagens mais usadas</h4>
+                <h4 className="languages__title">{t.about.mostUsedLanguages}</h4>
                 <div className="languages__list">
                   {Object.entries(githubStats.languages)
                     .sort(([,a], [,b]) => b - a)
@@ -156,7 +137,7 @@ const About = () => {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <h3 className="about__timeline-title">Trajetória Profissional</h3>
+          <h3 className="about__timeline-title">{t.about.professionalJourney}</h3>
           <div className="timeline">
             {timeline.map((item, index) => (
               <motion.div

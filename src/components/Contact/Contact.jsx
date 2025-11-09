@@ -4,10 +4,14 @@ import { FiMail, FiUser, FiMessageSquare, FiSend, FiCheckCircle, FiAlertCircle }
 import { useForm } from 'react-hook-form';
 import { useInView } from 'react-intersection-observer';
 import { toast } from 'react-toastify';
+import { useAppContext } from '../../context/AppContext';
+import { translations } from '../../data/translations';
 import { sendEmail } from '../../services/emailService';
 import './Contact.scss';
 
 const Contact = () => {
+  const { state } = useAppContext();
+  const t = translations[state.language];
   const [submitStatus, setSubmitStatus] = useState('idle'); // idle, loading, success, error
   const { ref, inView } = useInView({
     threshold: 0.1,
@@ -34,7 +38,7 @@ const Contact = () => {
         reset();
         
         // Show success toast
-        toast.success('Mensagem enviada com sucesso! Entrarei em contato em breve.', {
+        toast.success(t.contact.successMessage, {
           icon: '🚀'
         });
       } else {
@@ -48,7 +52,7 @@ const Contact = () => {
       setSubmitStatus('error');
       
       // Show error toast
-      toast.error('Erro ao enviar mensagem. Tente novamente mais tarde.', {
+      toast.error(t.contact.errorMessage, {
         icon: '❌'
       });
       
@@ -74,9 +78,9 @@ const Contact = () => {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="contact__title">Vamos Conversar?</h2>
+          <h2 className="contact__title">{t.contact.title}</h2>
           <p className="contact__subtitle">
-            Interessado em trabalhar juntos? Entre em contato e vamos criar algo incrível!
+            {t.contact.subtitle}
           </p>
         </motion.div>
 
@@ -124,13 +128,13 @@ const Contact = () => {
               <div className="form-group">
                 <label htmlFor="name" className="form-label">
                   <FiUser />
-                  Nome
+                  {t.contact.name}
                 </label>
                 <input
                   id="name"
                   type="text"
                   className={`form-input ${errors.name ? 'form-input--error' : ''}`}
-                  placeholder="Seu nome completo"
+                  placeholder={t.contact.namePlaceholder}
                   {...register('name', {
                     required: 'Nome é obrigatório',
                     minLength: {
@@ -147,13 +151,13 @@ const Contact = () => {
               <div className="form-group">
                 <label htmlFor="email" className="form-label">
                   <FiMail />
-                  Email
+                  {t.contact.email}
                 </label>
                 <input
                   id="email"
                   type="email"
                   className={`form-input ${errors.email ? 'form-input--error' : ''}`}
-                  placeholder="seu@email.com"
+                  placeholder={t.contact.emailPlaceholder}
                   {...register('email', {
                     required: 'Email é obrigatório',
                     pattern: {
@@ -188,13 +192,13 @@ const Contact = () => {
               <div className="form-group">
                 <label htmlFor="message" className="form-label">
                   <FiMessageSquare />
-                  Mensagem
+                  {t.contact.message}
                 </label>
                 <textarea
                   id="message"
                   rows={6}
                   className={`form-textarea ${errors.message ? 'form-input--error' : ''}`}
-                  placeholder="Descreva seu projeto ou ideia..."
+                  placeholder={t.contact.messagePlaceholder}
                   {...register('message', {
                     required: 'Mensagem é obrigatória',
                     minLength: {
@@ -224,12 +228,12 @@ const Contact = () => {
                       animate={{ rotate: 360 }}
                       transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
                     />
-                    Enviando...
+                    {t.contact.sending}
                   </>
                 ) : (
                   <>
                     <FiSend />
-                    Enviar Mensagem
+                    {t.contact.send}
                   </>
                 )}
               </motion.button>
@@ -243,7 +247,7 @@ const Contact = () => {
                   exit={{ opacity: 0, y: -20 }}
                 >
                   <FiCheckCircle />
-                  Mensagem enviada com sucesso! Retornarei em breve.
+                  {t.contact.successMessage}
                 </motion.div>
               )}
 
@@ -255,7 +259,7 @@ const Contact = () => {
                   exit={{ opacity: 0, y: -20 }}
                 >
                   <FiAlertCircle />
-                  Erro ao enviar mensagem. Tente novamente.
+                  {t.contact.errorMessage}
                 </motion.div>
               )}
             </form>

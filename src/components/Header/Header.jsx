@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FiMenu, FiX, FiSun, FiMoon, FiGithub, FiLinkedin } from 'react-icons/fi';
+import { FiMenu, FiX, FiSun, FiMoon, FiGithub, FiLinkedin, FiGlobe } from 'react-icons/fi';
 import { useAppContext } from '../../context/AppContext';
 import { useSmoothScroll } from '../../hooks/useScroll';
+import { translations } from '../../data/translations';
 import logo2 from '../../assets/images/logo2.png';
 import './Header.scss';
 
@@ -10,14 +11,17 @@ const Header = () => {
   const { state, actions } = useAppContext();
   const { scrollToSection } = useSmoothScroll();
   const [isScrolled, setIsScrolled] = useState(false);
+  
+  // Get current language translations
+  const t = translations[state.language];
 
   // Navigation items
   const navItems = [
-    { id: 'hero', label: 'Início', href: '#hero' },
-    { id: 'projects', label: 'Projetos', href: '#projects' },
-    { id: 'skills', label: 'Skills', href: '#skills' },
-    { id: 'about', label: 'Sobre', href: '#about' },
-    { id: 'contact', label: 'Contato', href: '#contact' }
+    { id: 'hero', label: t.nav.home, href: '#hero' },
+    { id: 'projects', label: t.nav.projects, href: '#projects' },
+    { id: 'skills', label: t.nav.skills, href: '#skills' },
+    { id: 'about', label: t.nav.about, href: '#about' },
+    { id: 'contact', label: t.nav.contact, href: '#contact' }
   ];
 
   // Handle scroll effect
@@ -42,6 +46,10 @@ const Header = () => {
 
   const handleThemeToggle = () => {
     actions.toggleTheme();
+  };
+
+  const handleLanguageToggle = () => {
+    actions.toggleLanguage();
   };
 
   return (
@@ -108,6 +116,19 @@ const Header = () => {
               <FiLinkedin />
             </motion.a>
           </div>
+
+          {/* Language Toggle */}
+          <motion.button
+            className="header__language-toggle"
+            onClick={handleLanguageToggle}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            aria-label="Toggle Language"
+            title={state.language === 'pt' ? 'Switch to English' : 'Mudar para Português'}
+          >
+            <FiGlobe />
+            <span className="header__language-text">{state.language.toUpperCase()}</span>
+          </motion.button>
 
           {/* Theme Toggle */}
           <motion.button
