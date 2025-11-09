@@ -99,6 +99,50 @@ const Projects = () => {
       github: 'https://github.com/marioleme/React-Router-Navega-o-em-uma-SPA/tree/main/petshop',
       image: '/assets/images/projects/petshop.gif'
     },
+      {
+      id: 'sinsa',
+      ...getProjectDetails('sinsa'),
+      technologies: ['Node.js', 'KnockoutJS', 'JavaScript', 'Less'],
+      category: 'ecommerce',
+      featured: true,
+      image: '/assets/images/projects/sinsa.jpeg'
+    },
+         {
+      id: 'farmaciasespecializadas',
+      ...getProjectDetails('farmaciasespecializadas'),
+      technologies: ['Node.js', 'KnockoutJS', 'JavaScript', 'Less'],
+      category: 'ecommerce',
+      featured: true,
+      image: '/assets/images/projects/farmacia.jpeg'
+    },
+    {
+      id: 'armazempb',
+      ...getProjectDetails('armazempb'),
+      technologies: ['Node.js', 'KnockoutJS', 'JavaScript', 'Less'],
+      category: 'ecommerce',
+      featured: true,
+      image: '/assets/images/projects/armazempb.jpeg'
+    },
+      {
+      id: 'polybalas',
+      ...getProjectDetails('polybalas'),
+      technologies: ['Node.js', 'KnockoutJS', 'JavaScript', 'Less'],
+      category: 'ecommerce',
+      featured: false,
+      github: 'https://www.polybalas.com.br/',
+      image: '/assets/images/projects/polybalas.jpeg'
+    },
+     {
+      id: 'frigelar',
+      ...getProjectDetails('frigelar'),
+      technologies: ['Node.js', 'KnockoutJS', 'JavaScript', 'Less'],
+      category: 'ecommerce',
+      featured: false,
+      image: '/assets/images/projects/frigelar.gif'
+    },
+
+
+
     /*
     {
       id: 'ecommerce-app',
@@ -171,6 +215,7 @@ const Projects = () => {
     { id: 'react', label: 'React', count: featuredProjects.filter(p => p.category === 'react').length },
     { id: 'fullstack', label: 'Full Stack', count: featuredProjects.filter(p => p.category === 'fullstack').length },
     { id: 'frontend', label: 'Frontend', count: featuredProjects.filter(p => p.category === 'frontend').length },
+    { id: 'ecommerce', label: 'E-commerce', count: featuredProjects.filter(p => p.category === 'ecommerce').length },
     { id: 'featured', label: 'Destaque', count: featuredProjects.length }
   ];
 
@@ -183,6 +228,8 @@ const Projects = () => {
         return featuredProjects.filter(project => project.category === 'fullstack').slice(0, 6);
       case 'frontend':
         return featuredProjects.filter(project => project.category === 'frontend').slice(0, 6);
+      case 'ecommerce':
+        return featuredProjects.filter(project => project.category === 'ecommerce').slice(0, 6);
       case 'featured':
       case 'all':
       default:

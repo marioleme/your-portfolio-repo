@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FiCode, FiLayers, FiTool } from 'react-icons/fi';
-import { SiReact, SiJavascript, SiTypescript, SiHtml5, SiCss3, SiNodedotjs, SiGit, SiFigma, SiNextdotjs, SiVisualstudiocode, SiMicrosoftazure, SiPhp, SiGulp, SiVercel, SiBootstrap } from 'react-icons/si';
+import { FiCode, FiLayers, FiTool, FiDatabase, FiServer } from 'react-icons/fi';
+import { SiReact, SiJavascript, SiTypescript, SiHtml5, SiCss3, SiNodedotjs, SiGit, SiFigma, SiNextdotjs, SiVisualstudiocode, SiMicrosoftazure, SiPhp, SiGulp, SiVercel, SiBootstrap, SiCanva, SiMysql, SiSupabase, SiDocker } from 'react-icons/si';
 import { useInView } from 'react-intersection-observer';
 import { useAppContext } from '../../context/AppContext';
 import { translations } from '../../data/translations';
@@ -24,14 +24,18 @@ const Skills = () => {
       { name: 'KnockoutJS', icon: SiJavascript, level: 80, color: '#FF6600' },
       { name: 'TypeScript', icon: SiTypescript, level: 85, color: '#3178C6' },
       { name: 'HTML5', icon: SiHtml5, level: 98, color: '#E34F26' },
-      { name: 'CSS3/SCSS', icon: SiCss3, level: 92, color: '#1572B6' },
+      { name: 'CSS3/SCSS/LESS/Tailwind', icon: SiCss3, level: 92, color: '#1572B6' },
       { name: 'Bootstrap', icon: SiBootstrap, level: 88, color: '#7952B3' },
-      { name: 'Gulp/Grunt', icon: SiGulp, level: 78, color: '#CF4647' }
+      { name: 'Gulp/Grunt', icon: SiGulp, level: 78, color: '#CF4647' },
+      { name: 'PHP', icon: SiPhp, level: 75, color: '#777BB4' }
     ],
     backend: [
       { name: 'Node.js', icon: SiNodedotjs, level: 80, color: '#339933' },
       { name: 'JavaScript', icon: SiJavascript, level: 90, color: '#F7DF1E' },
-      { name: 'PHP', icon: SiPhp, level: 75, color: '#777BB4' }
+      { name: 'PHP', icon: SiPhp, level: 75, color: '#777BB4' },
+      { name: 'MySQL', icon: SiMysql, level: 75, color: '#4479A1' },
+      { name: 'Supabase', icon: SiSupabase, level: 40, color: '#3ECF8E' }
+
     ],
     tools: [
       { name: 'Git', icon: SiGit, level: 88, color: '#F05032' },
@@ -39,7 +43,12 @@ const Skills = () => {
       { name: 'VS Code', icon: SiVisualstudiocode, level: 95, color: '#007ACC' },
       { name: 'Azure', icon: SiMicrosoftazure, level: 72, color: '#0078D4' },
       { name: 'Vercel', icon: SiVercel, level: 90, color: '#000000' },
-      { name: 'Core Web Vitals', icon: FiTool, level: 85, color: '#4285F4' }
+      { name: 'Canva', icon: SiCanva, level: 60, color: '#00C4CC' },
+      { name: 'Core Web Vitals', icon: FiTool, level: 85, color: '#4285F4' },
+      { name: 'FileZilla', icon: FiServer, level: 85, color: '#BF0000' },
+      { name: 'VPN', icon: FiTool, level: 85, color: '#4f6994ff' },
+      { name: 'n8n', icon: FiTool, level: 30, color: '#EA4B71' },
+      { name: 'Docker', icon: SiDocker, level: 30, color: '#2496ED' }
     ]
   };
 

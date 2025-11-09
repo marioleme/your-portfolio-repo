@@ -149,7 +149,35 @@ export const translations = {
         title: 'PetShop - React Router',
         description: 'Aplicação web de PetShop desenvolvida com React Router para navegação em SPA (Single Page Application), demonstrando rotas dinâmicas, navegação programática e boas práticas de estruturação de rotas',
         highlights: ['React Router', 'Navegação SPA', 'Rotas dinâmicas']
-      }
+      },
+         'sinsa': {
+        title: 'Sinsa - Ecommercer - OCC',
+        description: 'Ecommercer  na plataforma Oracle Cloud Commercer - OCC Uma empresa especializada em materiais de contrução na Nicarágua',
+        highlights: ['Ecommercer', 'Oracle Cloud Commercer', 'KnockoutJS','Less','Jquery']
+         },
+        'farmaciasespecializadas': {
+        title: 'Farmácias Especializadas - Ecommercer - OCC - B2B',
+        description: 'Ecommercer  na plataforma Oracle Cloud Commercer - Uma Farmacia online  com medicamentos para medicos e pacientes no Mexico',
+        highlights: ['Ecommercer', 'Oracle Cloud Commercer', 'KnockoutJS','Less','Jquery']
+      },
+       
+        'armazempb': {
+        title: 'Armazém Paraíba  - Ecommercer - OCC - B2B',
+        description: 'Ecommercer  na plataforma Oracle Cloud Commercer - Uma loja online Móveis, Celulares, Smart TV e Mais | Armazém Paraíba - Armazém PB',
+        highlights: ['Ecommercer', 'Oracle Cloud Commercer', 'KnockoutJS','Less','Jquery']
+      },
+       
+        'polybalas': {
+        title: 'Polybalas  - Ecommercer - OCC - B2C',
+        description: 'Ecommercer  na plataforma Oracle Cloud Commercer - Uma loja online  Higiene, beleza e saúde | Polybalas ',
+        highlights: ['Ecommercer', 'Oracle Cloud Commercer', 'KnockoutJS','Less','Jquery']
+      },
+        'frigelar': {
+        title: 'Frigelar  - Ecommercer - OCC - B2C e B2B',
+        description: 'Ecommercer  na plataforma Oracle Cloud Commercer - A Frigelar a dedicar-se exclusivamente à revenda de peças, câmaras frigoríficas e condicionadores de ar, tember com outros eletrodomésticos. ',
+        highlights: ['Ecommercer', 'Oracle Cloud Commercer', 'KnockoutJS','Less','Jquery']
+      },
+    
     }
   },
   
@@ -303,7 +331,34 @@ export const translations = {
         title: 'PetShop - React Router',
         description: 'PetShop web application developed with React Router for SPA (Single Page Application) navigation, demonstrating dynamic routes, programmatic navigation and best practices for route structuring',
         highlights: ['React Router', 'SPA navigation', 'Dynamic routes']
-      }
+      },
+        'sinsa': {
+        title: 'Sinsa - Ecommercer - OCC',
+        description: 'E-commerce on the Oracle Cloud Commercer platform - OCC. A company specializing in construction materials in Nicaragua.',
+        highlights: ['Ecommercer', 'Oracle Cloud Commercer', 'KnockoutJS','Less','Jquery']
+         },
+        'farmaciasespecializadas': {
+        title: 'Farmácias Especializadas - Ecommercer - OCC - B2B',
+        description: '-commerce on the Oracle Cloud Commercer platform - An online pharmacy with medications for doctors and patients in Mexico.',
+        highlights: ['Ecommercer', 'Oracle Cloud Commercer', 'KnockoutJS','Less','Jquery']
+      },
+       
+        'armazempb': {
+        title: 'Armazém Paraíba  - Ecommercer - OCC - B2B',
+        description: 'E-commerce on the Oracle Cloud Commerce platform - An online store for Furniture, Cell Phones, Smart TVs and More | Armazém Paraíba - Armazém PB',
+        highlights: ['Ecommercer', 'Oracle Cloud Commercer', 'KnockoutJS','Less','Jquery']
+      },
+       
+        'polybalas': {
+        title: 'Polybalas  - Ecommercer - OCC - B2C',
+        description: '-commerce on the Oracle Cloud Commercer platform - An online store for Hygiene, beauty and health products| Polybalas ',
+        highlights: ['Ecommercer', 'Oracle Cloud Commercer', 'KnockoutJS','Less','Jquery']
+      },
+        'frigelar': {
+        title: 'Frigelar  - Ecommercer - OCC - B2C e B2B',
+        description: ' Ecommerce on the Oracle Cloud Commercer platform - Frigelar is dedicated exclusively to the resale of parts, cold rooms and air conditioners, as well as other household appliances.',
+        highlights: ['Ecommercer', 'Oracle Cloud Commercer', 'KnockoutJS','Less','Jquery']
+      },
     }
   }
 };
