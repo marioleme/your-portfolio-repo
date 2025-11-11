@@ -339,7 +339,7 @@ export const translations = {
          },
         'farmaciasespecializadas': {
         title: 'Farmácias Especializadas - Ecommercer - OCC - B2B',
-        description: '-commerce on the Oracle Cloud Commercer platform - An online pharmacy with medications for doctors and patients in Mexico.',
+        description: 'E-commerce on the Oracle Cloud Commercer platform - An online pharmacy with medications for doctors and patients in Mexico.',
         highlights: ['Ecommercer', 'Oracle Cloud Commercer', 'KnockoutJS','Less','Jquery']
       },
        
