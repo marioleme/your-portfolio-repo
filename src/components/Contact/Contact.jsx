@@ -91,7 +91,7 @@ const Contact = () => {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <h3 className="contact__info-title">Informações de Contato</h3>
+            <h3 className="contact__info-title">{t.contact.getInTouch}</h3>
             <div className="contact__info-list">
               {contactInfo.map((item, index) => (
                 <motion.a
@@ -112,8 +112,7 @@ const Contact = () => {
 
             <div className="contact__description">
               <p>
-                Estou sempre aberto a discutir novos projetos, oportunidades 
-                criativas ou parcerias. Não hesite em entrar em contato!
+                {t.contact.availability}
               </p>
             </div>
           </motion.div>
@@ -173,13 +172,13 @@ const Contact = () => {
 
               <div className="form-group">
                 <label htmlFor="subject" className="form-label">
-                  Assunto
+                  {t.contact.subject}
                 </label>
                 <input
                   id="subject"
                   type="text"
                   className={`form-input ${errors.subject ? 'form-input--error' : ''}`}
-                  placeholder="Assunto da mensagem"
+                  placeholder={t.contact.subjectPlaceholder}
                   {...register('subject', {
                     required: 'Assunto é obrigatório'
                   })}

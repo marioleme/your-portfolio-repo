@@ -95,6 +95,8 @@ export const translations = {
       namePlaceholder: 'Seu nome',
       email: 'Email',
       emailPlaceholder: 'seu@email.com',
+      subject: 'Assunto',
+      subjectPlaceholder: 'Assunto da mensagem',
       message: 'Mensagem',
       messagePlaceholder: 'Sua mensagem...',
       send: 'Enviar Mensagem',
@@ -103,9 +105,9 @@ export const translations = {
       successMessage: 'Obrigado pelo contato. Responderei em breve!',
       errorTitle: 'Erro ao enviar',
       errorMessage: 'Ocorreu um erro. Tente novamente.',
-      getInTouch: 'Entre em Contato',
+      getInTouch: 'Informações de Contato',
       location: 'São Paulo, Brasil',
-      availability: 'Disponível para novos projetos'
+      availability: 'Estou sempre aberto a discutir novos projetos, oportunidades criativas ou parcerias. Não hesite em entrar em contato!'
     },
     
     // Project Details
@@ -277,6 +279,8 @@ export const translations = {
       namePlaceholder: 'Your name',
       email: 'Email',
       emailPlaceholder: 'your@email.com',
+      subject: 'Subject',
+      subjectPlaceholder: 'Message subject',
       message: 'Message',
       messagePlaceholder: 'Your message...',
       send: 'Send Message',
@@ -285,9 +289,9 @@ export const translations = {
       successMessage: 'Thank you for contacting me. I will reply soon!',
       errorTitle: 'Error sending',
       errorMessage: 'An error occurred. Please try again.',
-      getInTouch: 'Get In Touch',
+      getInTouch: 'Contact Information',
       location: 'São Paulo, Brazil',
-      availability: 'Available for new projects'
+      availability: 'I am always open to discuss new projects, creative opportunities or partnerships. Feel free to get in touch!'
     },
     
     // Project Details
