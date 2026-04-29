@@ -23,10 +23,17 @@ const About = () => {
     languages: {
       'JavaScript': 45000,
       'TypeScript': 28000,
-      'PHP': 32000,
+      'PHP': 1500,
       'HTML': 22000,
       'CSS': 18000,
-      'Python': 15000
+      'React': 32000,
+      'Jest, Cypress, Testing Library': 10000,
+      'Git': 10000,
+      'Docker': 10000,
+      'Azure': 10000,
+      'Supabase': 10000,
+      'MySQL': 10000,
+
     }
   };
 
@@ -109,7 +116,7 @@ const About = () => {
                 <div className="languages__list">
                   {Object.entries(githubStats.languages)
                     .sort(([,a], [,b]) => b - a)
-                    .slice(0, 5)
+                    .slice(0, 6)
                     .map(([lang, bytes]) => (
                       <div key={lang} className="language-item">
                         <span className="language-item__name">{lang}</span>
@@ -153,6 +160,18 @@ const About = () => {
                 <div className="timeline-item__content">
                   <h4 className="timeline-item__title">{item.title}</h4>
                   <p className="timeline-item__description">{item.description}</p>
+                  {item.stack && (
+                    <div className="timeline-item__stack" aria-label="Technology stack">
+                      <span className="timeline-item__stack-label">Stack</span>
+                      <div className="timeline-item__stack-list">
+                        {item.stack.map((technology) => (
+                          <span key={technology} className="timeline-item__stack-tag">
+                            {technology}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
               </motion.div>
             ))}

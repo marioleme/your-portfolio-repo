@@ -9,7 +9,7 @@ export const useGitHubData = (username) => {
   const hasAttempted = useRef(false);
 
   // Fallback data for rate limiting or development
-  const getFallbackData = () => {
+  const getFallbackData = useCallback(() => {
     if (username === 'marioleme') {
       return {
         profile: { login: 'marioleme', public_repos: 8, followers: 25, following: 15 },
@@ -56,7 +56,7 @@ export const useGitHubData = (username) => {
       joinedDate: '2020-01-01T00:00:00Z',
       lastActive: new Date().toISOString()
     };
-  };
+  }, [username]);
 
   const fetchGitHubData = useCallback(async () => {
     if (!username) {
@@ -97,7 +97,7 @@ export const useGitHubData = (username) => {
     } finally {
       setLoading(false);
     }
-  }, [username]);
+  }, [username, data, getFallbackData]);
 
   useEffect(() => {
     if (username && !hasAttempted.current) {
@@ -107,7 +107,7 @@ export const useGitHubData = (username) => {
       setData(getFallbackData());
       setLoading(false);
     }
-  }, [username, fetchGitHubData]);
+  }, [username, data, fetchGitHubData, getFallbackData]);
 
   const refresh = useCallback(() => {
     hasAttempted.current = false;
@@ -164,7 +164,7 @@ export const useRepositories = (username, count = 6) => {
   const hasAttempted = useRef(false);
 
   // Fallback repositories for rate limiting or development
-  const getFallbackRepos = () => {
+  const getFallbackRepos = useCallback(() => {
     if (username === 'marioleme') {
       return [
         {
@@ -218,7 +218,7 @@ export const useRepositories = (username, count = 6) => {
       ];
     }
     return [];
-  };
+  }, [username]);
 
   useEffect(() => {
     const fetchRepositories = async () => {
@@ -269,7 +269,7 @@ export const useRepositories = (username, count = 6) => {
       setData(getFallbackRepos());
       setLoading(false);
     }
-  }, [username, count]);
+  }, [username, count, data.length, getFallbackRepos]);
 
   return { data, loading, error };
 };

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FiCode, FiLayers, FiTool, FiDatabase, FiServer } from 'react-icons/fi';
-import { SiReact, SiJavascript, SiTypescript, SiHtml5, SiCss3, SiNodedotjs, SiGit, SiFigma, SiNextdotjs, SiVisualstudiocode, SiMicrosoftazure, SiPhp, SiGulp, SiVercel, SiBootstrap, SiCanva, SiMysql, SiSupabase, SiDocker } from 'react-icons/si';
+import { FiCode, FiLayers, FiTool, FiServer } from 'react-icons/fi';
+import { SiReact, SiJavascript, SiTypescript, SiHtml5, SiCss3, SiNodedotjs, SiGit, SiFigma, SiNextdotjs, SiVisualstudiocode, SiMicrosoftazure, SiPhp, SiGulp, SiVercel, SiBootstrap, SiCanva, SiMysql, SiSupabase, SiDocker, SiJest, SiTestinglibrary } from 'react-icons/si';
 import { useInView } from 'react-intersection-observer';
 import { useAppContext } from '../../context/AppContext';
 import { translations } from '../../data/translations';
@@ -27,7 +27,11 @@ const Skills = () => {
       { name: 'CSS3/SCSS/LESS/Tailwind', icon: SiCss3, level: 92, color: '#1572B6' },
       { name: 'Bootstrap', icon: SiBootstrap, level: 88, color: '#7952B3' },
       { name: 'Gulp/Grunt', icon: SiGulp, level: 78, color: '#CF4647' },
-      { name: 'PHP', icon: SiPhp, level: 75, color: '#777BB4' }
+      { name: 'PHP', icon: SiPhp, level: 75, color: '#777BB4' },
+      { name: 'Jest', icon: SiJest, level: 80, color: '#C21325' },
+      { name: 'Testing Library', icon: SiTestinglibrary, level: 80, color: '#E34F26' },
+ 
+  
     ],
     backend: [
       { name: 'Node.js', icon: SiNodedotjs, level: 80, color: '#339933' },
@@ -48,7 +52,8 @@ const Skills = () => {
       { name: 'FileZilla', icon: FiServer, level: 85, color: '#BF0000' },
       { name: 'VPN', icon: FiTool, level: 85, color: '#4f6994ff' },
       { name: 'n8n', icon: FiTool, level: 30, color: '#EA4B71' },
-      { name: 'Docker', icon: SiDocker, level: 30, color: '#2496ED' }
+      { name: 'Docker', icon: SiDocker, level: 30, color: '#2496ED' },
+      { name: 'Cursor', icon: FiTool, level: 30, color: '#17202C' }
     ]
   };
 

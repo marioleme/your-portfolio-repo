@@ -10,8 +10,6 @@ const EMAILJS_CONFIG = {
   publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY'
 };
 
-// Modo de teste local (desenvolvimento)
-const isDevelopment = import.meta.env.DEV;
 const isTestMode = import.meta.env.VITE_EMAIL_TEST_MODE === 'true';
 
 /**

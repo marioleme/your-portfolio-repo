@@ -140,6 +140,24 @@ const Projects = () => {
       featured: false,
       image: '/assets/images/projects/frigelar.gif'
     },
+    {
+      id: 'Widoing',
+      ...getProjectDetails('Widoing'),
+      technologies: ['PHP', 'CodeIgniter4', 'SQL', 'JavaScript', 'CSS3', 'HTML5'],
+      category: 'frontend',
+      featured: true,
+      video: '/assets/images/projects/widoing.mp4'
+    
+    },
+    {
+      id: 'Ycons',
+      ...getProjectDetails('Ycons'),
+      technologies: ['PHP', 'CodeIgniter4', 'SQL', 'JavaScript', 'CSS3', 'HTML5'],
+      category: 'frontend',
+      featured: true,
+      video: '/assets/images/projects/Ycons.mp4'
+    
+    },
 
 
 
@@ -216,7 +234,7 @@ const Projects = () => {
     { id: 'fullstack', label: 'Full Stack', count: featuredProjects.filter(p => p.category === 'fullstack').length },
     { id: 'frontend', label: 'Frontend', count: featuredProjects.filter(p => p.category === 'frontend').length },
     { id: 'ecommerce', label: 'E-commerce', count: featuredProjects.filter(p => p.category === 'ecommerce').length },
-    { id: 'featured', label: 'Destaque', count: featuredProjects.length }
+    { id: 'featured', label: 'Destaque', count: featuredProjects.filter(p => p.featured).length }
   ];
 
   // Filter projects based on active filter
@@ -225,27 +243,20 @@ const Projects = () => {
       case 'react':
         return featuredProjects.filter(project => project.category === 'react').slice(0, 6);
       case 'fullstack':
-        return featuredProjects.filter(project => project.category === 'fullstack').slice(0, 6);
+        return featuredProjects.filter(project => project.category === 'fullstack').slice(0, 9);
       case 'frontend':
-        return featuredProjects.filter(project => project.category === 'frontend').slice(0, 6);
+        return featuredProjects.filter(project => project.category === 'frontend').slice(0, 9);
       case 'ecommerce':
         return featuredProjects.filter(project => project.category === 'ecommerce').slice(0, 6);
       case 'featured':
+        return featuredProjects.filter(project => project.featured);
       case 'all':
       default:
-        return featuredProjects.slice(0, 8); // Show max 4 projects
+        return featuredProjects;
     }
   };
 
   const filteredProjects = getFilteredProjects();
-
-  // Format date
-  const formatDate = (dateString) => {
-    return new Date(dateString).toLocaleDateString('pt-BR', {
-      year: 'numeric',
-      month: 'short'
-    });
-  };
 
   // Get technology color
   const getTechColor = (tech) => {
@@ -286,7 +297,19 @@ const Projects = () => {
       >
         {/* Project Image/Preview */}
         <div className="project-card__image">
-          {project.image ? (
+          {project.video ? (
+            <video
+              className="project-card__image-img"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              aria-label={project.title}
+            >
+              <source src={project.video} type="video/mp4" />
+            </video>
+          ) : project.image ? (
             <img 
               src={project.image} 
               alt={project.title}
@@ -479,13 +502,19 @@ const Projects = () => {
               </button>
             </div>
 
-            {/* Modal Image */}
-            {selectedProject.image && (
+            {/* Modal Media */}
+            {(selectedProject.video || selectedProject.image) && (
               <div className="project-modal__image">
-                <img 
-                  src={selectedProject.image} 
-                  alt={selectedProject.title}
-                />
+                {selectedProject.video ? (
+                  <video controls playsInline preload="metadata">
+                    <source src={selectedProject.video} type="video/mp4" />
+                  </video>
+                ) : (
+                  <img 
+                    src={selectedProject.image} 
+                    alt={selectedProject.title}
+                  />
+                )}
               </div>
             )}
 

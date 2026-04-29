@@ -58,31 +58,55 @@ export const translations = {
       forks: 'Forks',
       mostUsedLanguages: 'Linguagens mais usadas',
       professionalJourney: 'Trajetória Profissional',
+      
       timeline: [
         {
+          year: '2026 2026',
+          title: 'Consultoria Frontend (PJ) | YCONS IT Consulting ',
+          description: '• Modernização do site institucional da YCONS — consultoria de tecnologia com mais de 20 anos de mercado. • Redesenho completo de identidade visual e arquitetura, com 5 páginas (Sobre, Serviços, Tecnologias, Contato, Carreira) em abordagem mobile-first. • Refatoração do código existente — eliminação de redundâncias e organização da estrutura para sustentabilidade.',
+          stack: ['PHP', 'CodeIgniter4', 'SQL', 'JavaScript', 'CSS3', 'HTML5']
+        },
+        {
+          year: '2025 2026',
+          title: 'Front-End | JBQ.Global',
+          description: '• Desenvolvimento de e-commerce para iPlace — maior premium reseller Apple no Brasil — na plataforma OSF. • Criação de componentes reutilizáveis em React.js e integrações com APIs do ecossistema Oracle Commerce Cloud. • Atuação em ambiente ágil com times multidisciplinares e alinhamento contínuo entre frontend, backend, design e produto.',
+          stack: ['React.js', 'Node.js', 'JavaScript', 'SASS', 'HTML5', 'CSS3', 'Oracle OCC', 'OSF', 'Git']
+        },
+        {
+          year: '2025 2025',
+          title: 'Frontend Engineer | Widoing',
+          description: 'Revitalização completa da plataforma Widoing — modernização de interface com foco em performance e mobile. • Redesign visual e arquitetural — nova identidade implementada do zero. • Auditoria e refatoração de código — eliminação de redundâncias e otimização de carregamento.',
+          stack: ['PHP', 'CodeIgniter4', 'SQL', 'JavaScript', 'CSS3', 'HTML5']
+        },
+        {
           year: '2022 2025',
-          title: 'Front-End | Aggrandize',
-          description: 'Implementação de GA4 e data-layer, otimizando a coleta de dados e análise de performance. Melhoria de desempenho com foco em Core Web Vitals e equalização de ambientes. Desenvolvimento e personalização de páginas B2B e de rastreio em plataformas OSF, utilizando React, KnockoutJS, JavaScript, HTML, LESS, Git e Azure.'
+          title: 'Frontend Developer | Aggrandize',
+          description: 'Implementação de GA4 e data-layer, otimizando a coleta de dados e análise de performance. Melhoria de desempenho com foco em Core Web Vitals e equalização de ambientes. Desenvolvimento e personalização de páginas B2B e de rastreio em plataformas OSF.',
+          stack: ['React', 'KnockoutJS', 'JavaScript', 'HTML', 'LESS', 'Git', 'Azure']
         },
         {
           year: '2018 2022',
           title: 'Front-End | NSH',
-          description: 'Desenvolvimento de e-commerces do zero, atuando em projetos como RiverShop, Farmácias Especializadas e Sinsa. Customizações em grandes clientes, como Oi e Armazém PB, incluindo melhorias em funcionalidades e métodos de pagamento. Tecnologias: React, KnockoutJS, JavaScript, HTML, LESS, JQuery, Git e Azure.'
+          description: 'Desenvolvimento de e-commerces do zero, atuando em projetos como RiverShop, Farmácias Especializadas e Sinsa. Customizações em grandes clientes, como Oi e Armazém PB, incluindo melhorias em funcionalidades e métodos de pagamento.',
+          stack: ['React', 'KnockoutJS', 'JavaScript', 'HTML', 'LESS', 'JQuery', 'Git', 'Azure']
         },
         {
           year: '2017 2018',
           title: 'Front-End | Agência DCS',
-          description: 'Customização de temas WordPress, com destaque para o projeto da Revista Versa. Desenvolvimento de lojas virtuais, como a Ezcore e iniciativas em plataformas verticais. Experiência com VTEX, EzCore e WordPress.'
+          description: 'Customização de temas WordPress, com destaque para o projeto da Revista Versa. Desenvolvimento de lojas virtuais, como a Ezcore e iniciativas em plataformas verticais.',
+          stack: ['VTEX', 'EzCore', 'WordPress']
         },
         {
           year: '2015 2017',
           title: 'Front-End | Revolution.online',
-          description: 'HTML/CSS/CSS 3/ JavaScript/Jquery /php /mysql/ wordpress/ Google Web Designer / Google Tag Manager/Google Analytics'
+          description: 'Desenvolvimento frontend e manutenção de projetos web com foco em WordPress, tracking e campanhas digitais.',
+          stack: ['HTML', 'CSS', 'CSS3', 'JavaScript', 'JQuery', 'PHP', 'MySQL', 'WordPress', 'Google Web Designer', 'Google Tag Manager', 'Google Analytics']
         },
         {
           year: '2014 2014',
           title: 'Front-End | 7Ways',
-          description: 'HTML/ CSS 3/JavaScript /Jquery /VTEX/ PHP /MySQL / ATG Oracle/WordPress.'
+          description: 'Desenvolvimento frontend para projetos web e e-commerce em diferentes plataformas.',
+          stack: ['HTML', 'CSS3', 'JavaScript', 'JQuery', 'VTEX', 'PHP', 'MySQL', 'ATG Oracle', 'WordPress']
         }
       ]
     },
@@ -179,7 +203,16 @@ export const translations = {
         description: 'Ecommercer  na plataforma Oracle Cloud Commercer - A Frigelar a dedicar-se exclusivamente à revenda de peças, câmaras frigoríficas e condicionadores de ar, tember com outros eletrodomésticos. ',
         highlights: ['Ecommercer', 'Oracle Cloud Commercer', 'KnockoutJS','Less','Jquery']
       },
-    
+      'Widoing': {
+        title: 'Widoing - Frontend',
+        description: 'Modernization of the Widoing platform - interface modernization focused on performance and mobile. • Visual and architectural redesign — new identity implemented from scratch. • Code audit and refactoring — removing redundancies and optimizing loading performance.',
+        highlights: ['PHP', 'CodeIgniter4', 'SQL', 'JavaScript', 'CSS3', 'HTML5']
+      },
+      'Ycons': {
+        title: 'YCONS IT Consulting - Frontend',
+        description: '•	Modernização do site institucional da YCONS — consultoria de tecnologia com mais de 20 anos de mercado. •	Redesenho completo de identidade visual e arquitetura, com 5 páginas (Sobre, Serviços, Tecnologias, Contato, Carreira) em abordagem mobile-first. •	Refatoração do código existente — eliminação de redundâncias e organização da estrutura para sustentabilidade.',
+        highlights: ['Mobile-first', 'Refatoração de código', 'Identidade visual']
+      },
     }
   },
   
@@ -244,30 +277,53 @@ export const translations = {
       professionalJourney: 'Professional Journey',
       timeline: [
         {
+          year: '2026 2026',
+          title: 'Frontend Consulting (Contractor) | YCONS IT Consulting ',
+          description: '• Modernization of YCONS institutional website — a technology consulting company with over 20 years in the market. • Complete redesign of the visual identity and architecture, with 5 pages (About, Services, Technologies, Contact, Careers) using a mobile-first approach. • Refactoring of the existing codebase — removing redundancies and organizing the structure for long-term maintainability.',
+          stack: ['PHP', 'CodeIgniter4', 'SQL', 'JavaScript', 'CSS3', 'HTML5']
+        },
+        {
+          year: '2025 2026',
+          title: 'Front-End | JBQ.Global',
+          description: '• Development of an e-commerce experience for iPlace — the largest Apple premium reseller in Brazil — on the OSF platform. • Creation of reusable React.js components and integrations with Oracle Commerce Cloud ecosystem APIs. • Work in an agile environment with multidisciplinary teams and continuous alignment between frontend, backend, design and product.',
+          stack: ['React.js', 'Node.js', 'JavaScript', 'SASS', 'HTML5', 'CSS3', 'Oracle OCC', 'OSF', 'Git']
+        },
+        {
+          year: '2025 2025',
+          title: 'Frontend Engineer | Widoing',
+          description: 'Complete revitalization of the Widoing platform — interface modernization focused on performance and mobile. • Visual and architectural redesign — new identity implemented from scratch. • Code audit and refactoring — removing redundancies and optimizing loading performance.',
+          stack: ['PHP', 'CodeIgniter4', 'SQL', 'JavaScript', 'CSS3', 'HTML5']
+        },
+        {
           year: '2022 2025',
           title: 'Front-End | Aggrandize',
-          description: 'Implementation of GA4 and data-layer, optimizing data collection and performance analysis. Performance improvement focusing on Core Web Vitals and environment equalization. Development and customization of B2B and tracking pages on OSF platforms, using React, KnockoutJS, JavaScript, HTML, LESS, Git and Azure.'
+          description: 'Implementation of GA4 and data-layer, optimizing data collection and performance analysis. Performance improvement focusing on Core Web Vitals and environment equalization. Development and customization of B2B and tracking pages on OSF platforms.',
+          stack: ['React', 'KnockoutJS', 'JavaScript', 'HTML', 'LESS', 'Git', 'Azure']
         },
         {
           year: '2018 2022',
           title: 'Front-End | NSH',
-          description: 'Development of e-commerces from scratch, working on projects such as RiverShop, Specialized Pharmacies and Sinsa. Customizations for large clients, such as Oi and Armazém PB, including improvements in features and payment methods. Technologies: React, KnockoutJS, JavaScript, HTML, LESS, JQuery, Git and Azure.'
+          description: 'Development of e-commerces from scratch, working on projects such as RiverShop, Specialized Pharmacies and Sinsa. Customizations for large clients, such as Oi and Armazém PB, including improvements in features and payment methods.',
+          stack: ['React', 'KnockoutJS', 'JavaScript', 'HTML', 'LESS', 'JQuery', 'Git', 'Azure']
         },
         {
           year: '2017 2018',
           title: 'Front-End | DCS Agency',
-          description: 'Customization of WordPress themes, highlighting the Revista Versa project. Development of virtual stores, such as Ezcore and initiatives on vertical platforms. Experience with VTEX, EzCore and WordPress.'
+          description: 'Customization of WordPress themes, highlighting the Revista Versa project. Development of virtual stores, such as Ezcore and initiatives on vertical platforms.',
+          stack: ['VTEX', 'EzCore', 'WordPress']
         },
         {
           year: '2015 2017',
           title: 'Front-End | Revolution.online',
-          description: 'HTML/CSS/CSS 3/ JavaScript/Jquery /php /mysql/ wordpress/ Google Web Designer / Google Tag Manager/Google Analytics'
+          description: 'Frontend development and maintenance of web projects focused on WordPress, tracking and digital campaigns.',
+          stack: ['HTML', 'CSS', 'CSS3', 'JavaScript', 'JQuery', 'PHP', 'MySQL', 'WordPress', 'Google Web Designer', 'Google Tag Manager', 'Google Analytics']
         },
         {
           year: '2014 2014',
           title: 'Front-End | 7Ways',
-          description: 'HTML/ CSS 3/JavaScript /Jquery /VTEX/ PHP /MySQL / ATG Oracle/WordPress.'
-        }
+          description: 'Frontend development for web and e-commerce projects across different platforms.',
+          stack: ['HTML', 'CSS3', 'JavaScript', 'JQuery', 'VTEX', 'PHP', 'MySQL', 'ATG Oracle', 'WordPress']
+        },
       ]
     },
     
@@ -362,6 +418,11 @@ export const translations = {
         title: 'Frigelar  - Ecommercer - OCC - B2C e B2B',
         description: ' Ecommerce on the Oracle Cloud Commercer platform - Frigelar is dedicated exclusively to the resale of parts, cold rooms and air conditioners, as well as other household appliances.',
         highlights: ['Ecommercer', 'Oracle Cloud Commercer', 'KnockoutJS','Less','Jquery']
+      },
+        'Widoing': {
+        title: 'Widoing - Frontend',
+        description: 'Modernization of the Widoing platform - interface modernization focused on performance and mobile. • Visual and architectural redesign — new identity implemented from scratch. • Code audit and refactoring — removing redundancies and optimizing loading performance.',
+        highlights: ['PHP', 'CodeIgniter4', 'SQL', 'JavaScript', 'CSS3', 'HTML5']
       },
     }
   }

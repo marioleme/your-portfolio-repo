@@ -1,7 +1,22 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FiDownload, FiGithub, FiLinkedin, FiMail, FiChevronDown } from 'react-icons/fi';
-import { SiReact, SiJavascript, SiTypescript, SiHtml5, SiCss3, SiNodedotjs, SiPhp } from 'react-icons/si';
+import {
+  SiReact,
+  SiJavascript,
+  SiTypescript,
+  SiHtml5,
+  SiCss3,
+  SiNodedotjs,
+  SiPhp,
+  SiJest,
+  SiTestinglibrary,
+  SiGit,
+  SiDocker,
+  SiMicrosoftazure,
+  SiSupabase,
+  SiMysql
+} from 'react-icons/si';
 import { useTypingAnimation } from '../../hooks/useTypingAnimation';
 import { useAppContext } from '../../context/AppContext';
 import { useSmoothScroll } from '../../hooks/useScroll';
@@ -23,10 +38,15 @@ const Hero = () => {
   const techStack = [
     { icon: SiReact, name: 'React', color: '#61DAFB' },
     { icon: SiJavascript, name: 'JavaScript', color: '#F7DF1E' },
+    { icon: SiTypescript, name: 'TypeScript', color: '#3178C6' },
     { icon: SiNodedotjs, name: 'Node.js', color: '#339933' },
     { icon: SiHtml5, name: 'HTML5', color: '#E34F26' },
     { icon: SiCss3, name: 'CSS3', color: '#1572B6' },
-    { icon: SiPhp, name: 'PHP', color: '#777BB4' }
+    { icon: SiPhp, name: 'PHP', color: '#777BB4' },
+    { icon: SiJest, name: 'Jest', color: '#C21325' },
+    { icon: SiTestinglibrary, name: 'Testing Library', color: '#E34F26' },
+    { icon: SiGit, name: 'Git', color: '#F05032' },
+
   ];
 
   useEffect(() => {
@@ -35,11 +55,6 @@ const Hero = () => {
 
   const handleScrollToProjects = () => {
     scrollToSection('projects');
-  };
-
-  const handleDownloadCV = () => {
-    // Replace with actual CV download logic
-    console.log('Download CV');
   };
 
   return (
@@ -113,7 +128,7 @@ const Hero = () => {
               </motion.button>
 
               <motion.a
-                href="https://drive.google.com/file/d/1XLbCxjgMEN2-n-8sJKvnRq0tSQgWe1LU/view"
+                href="/assets/curriculo-mario-oliveira.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-secondary hero__cta-button"
