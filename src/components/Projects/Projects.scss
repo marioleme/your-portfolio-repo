@@ -1,6 +1,7 @@
 // Projects section styles
 .projects {
   background-color: var(--surface-color);
+ 
 
   &__header {
     text-align: center;
@@ -275,6 +276,8 @@
     line-height: var(--line-height-relaxed);
     margin-bottom: var(--space-md);
     flex: 1;
+    white-space: pre-line;
+    
   }
 
   &__technologies {

@@ -29,7 +29,7 @@ const Projects = () => {
       id: 'calculadora-react',
       ...getProjectDetails('calculadora-react'),
       technologies: ['React', 'JavaScript', 'CSS', 'HTML'],
-      category: 'react',
+      categories: ['react','frontend'],
       featured: true,
       demo: 'https://calculadora-react-mario.netlify.app',
       image: '/assets/images/projects/calculadora-react.jpg'
@@ -38,7 +38,7 @@ const Projects = () => {
       id: 'crud-supabase',
       ...getProjectDetails('crud-supabase'),
       technologies: ['React', 'Supabase', 'JavaScript', 'CSS'],
-      category: 'fullstack',
+      categories: ['fullstack'],
       featured: true,
       demo: 'https://crud-com-supabase.netlify.app',
       image: '/assets/images/projects/CRUD-COM-SUPABASE.png'
@@ -47,7 +47,7 @@ const Projects = () => {
       id: 'react-context-api',
       ...getProjectDetails('react-context-api'),
       technologies: ['React', 'Context API', 'JavaScript', 'CSS'],
-      category: 'react',
+      categories: ['react' ,'frontend'],
       featured: true,
       demo: 'https://github.com/marioleme/ReactContextApi',
       image: '/assets/images/projects/meteora-app.gif'
@@ -56,7 +56,7 @@ const Projects = () => {
       id: 'cobuccio',
       ...getProjectDetails('cobuccio'),
       technologies: ['JavaScript', 'HTML', 'CSS', 'Web APIs'],
-      category: 'frontend',
+      categories: ['frontend','react'],
       featured: true,
       demo: 'https://carteira-financeira-nextjs.netlify.app/auth',
       image: '/assets/images/projects/carteira.png'
@@ -65,7 +65,7 @@ const Projects = () => {
       id: 'react-migrando-typescript',
       ...getProjectDetails('react-migrando-typescript'),
       technologies: ['React', 'TypeScript', 'JavaScript', 'Hooks'],
-      category: 'react',
+      categories: ['react','frontend'],
       featured: true,
       demo: 'https://react-migrando-typescript.netlify.app',
       github: 'https://github.com/marioleme/react-migrando-typescript',
@@ -75,7 +75,7 @@ const Projects = () => {
       id: 'tailwind-css-estilizando',
       ...getProjectDetails('tailwind-css-estilizando'),
       technologies: ['HTML5', 'Tailwind CSS', 'CSS3', 'JavaScript'],
-      category: 'frontend',
+      categories: ['frontend'],
       featured: true,
       github: 'https://github.com/marioleme/tailwind-css-estilizando',
       image: '/assets/images/projects/tailwind-desktop.png'
@@ -85,7 +85,7 @@ const Projects = () => {
       id: 'movie-react',
       ...getProjectDetails('movie-react'),
       technologies: ['React', 'SCSS', 'Axios', 'TMDb API'],
-      category: 'react',
+      categories: ['react','frontend'],
       featured: true,
       demo: 'https://catalogo-de-filmes.weboliveira.top',
       image: '/assets/images/projects/movie-react.gif'
@@ -94,7 +94,7 @@ const Projects = () => {
       id: 'petshop-react-router',
       ...getProjectDetails('petshop-react-router'),
       technologies: ['React', 'React Router', 'JavaScript', 'CSS'],
-      category: 'react',
+      categories: ['react','frontend'],
       featured: true,
       github: 'https://github.com/marioleme/React-Router-Navega-o-em-uma-SPA/tree/main/petshop',
       image: '/assets/images/projects/petshop.gif'
@@ -103,7 +103,7 @@ const Projects = () => {
       id: 'sinsa',
       ...getProjectDetails('sinsa'),
       technologies: ['Node.js', 'KnockoutJS', 'JavaScript', 'Less'],
-      category: 'ecommerce',
+      categories: ['ecommerce','frontend'],
       featured: true,
       image: '/assets/images/projects/sinsa.jpeg'
     },
@@ -111,7 +111,7 @@ const Projects = () => {
       id: 'farmaciasespecializadas',
       ...getProjectDetails('farmaciasespecializadas'),
       technologies: ['Node.js', 'KnockoutJS', 'JavaScript', 'Less'],
-      category: 'ecommerce',
+      categories: ['ecommerce','frontend'],
       featured: true,
       image: '/assets/images/projects/farmacia.jpeg'
     },
@@ -119,7 +119,7 @@ const Projects = () => {
       id: 'armazempb',
       ...getProjectDetails('armazempb'),
       technologies: ['Node.js', 'KnockoutJS', 'JavaScript', 'Less'],
-      category: 'ecommerce',
+      categories: ['ecommerce','frontend'],
       featured: true,
       image: '/assets/images/projects/armazempb.jpeg'
     },
@@ -127,7 +127,7 @@ const Projects = () => {
       id: 'polybalas',
       ...getProjectDetails('polybalas'),
       technologies: ['Node.js', 'KnockoutJS', 'JavaScript', 'Less'],
-      category: 'ecommerce',
+      categories: ['ecommerce','frontend'],
       featured: false,
       github: 'https://www.polybalas.com.br/',
       image: '/assets/images/projects/polybalas.jpeg'
@@ -136,7 +136,7 @@ const Projects = () => {
       id: 'frigelar',
       ...getProjectDetails('frigelar'),
       technologies: ['Node.js', 'KnockoutJS', 'JavaScript', 'Less'],
-      category: 'ecommerce',
+      categories: ['ecommerce','frontend'],
       featured: false,
       image: '/assets/images/projects/frigelar.gif'
     },
@@ -144,8 +144,8 @@ const Projects = () => {
       id: 'Widoing',
       ...getProjectDetails('Widoing'),
       technologies: ['PHP', 'CodeIgniter4', 'SQL', 'JavaScript', 'CSS3', 'HTML5'],
-      category: 'frontend',
-      featured: true,
+      categories: ['frontend'],
+  
       video: '/assets/images/projects/widoing.mp4'
     
     },
@@ -153,8 +153,8 @@ const Projects = () => {
       id: 'Ycons',
       ...getProjectDetails('Ycons'),
       technologies: ['PHP', 'CodeIgniter4', 'SQL', 'JavaScript', 'CSS3', 'HTML5'],
-      category: 'frontend',
-      featured: true,
+      categories: ['frontend'],
+ 
       video: '/assets/images/projects/Ycons.mp4'
     
     },
@@ -227,29 +227,31 @@ const Projects = () => {
       */
   ];
 
+  const projectHasCategory = (project, category) => {
+    const categories = project.categories || project.category || [];
+    return Array.isArray(categories) ? categories.includes(category) : categories === category;
+  };
+
   // Filter options based on manual projects only
   const filterOptions = [
     { id: 'all', label: 'Todos', count: featuredProjects.length },
-    { id: 'react', label: 'React', count: featuredProjects.filter(p => p.category === 'react').length },
-    { id: 'fullstack', label: 'Full Stack', count: featuredProjects.filter(p => p.category === 'fullstack').length },
-    { id: 'frontend', label: 'Frontend', count: featuredProjects.filter(p => p.category === 'frontend').length },
-    { id: 'ecommerce', label: 'E-commerce', count: featuredProjects.filter(p => p.category === 'ecommerce').length },
-    { id: 'featured', label: 'Destaque', count: featuredProjects.filter(p => p.featured).length }
+    { id: 'react', label: 'React', count: featuredProjects.filter(p => projectHasCategory(p, 'react')).length },
+    { id: 'fullstack', label: 'Full Stack', count: featuredProjects.filter(p => projectHasCategory(p, 'fullstack')).length },
+    { id: 'frontend', label: 'Frontend', count: featuredProjects.filter(p => projectHasCategory(p, 'frontend')).length },
+    { id: 'ecommerce', label: 'E-commerce', count: featuredProjects.filter(p => projectHasCategory(p, 'ecommerce')).length }
   ];
 
   // Filter projects based on active filter
   const getFilteredProjects = () => {
     switch (activeFilter) {
       case 'react':
-        return featuredProjects.filter(project => project.category === 'react').slice(0, 6);
+        return featuredProjects.filter(project => projectHasCategory(project, 'react')).slice(0, 6);
       case 'fullstack':
-        return featuredProjects.filter(project => project.category === 'fullstack').slice(0, 9);
+        return featuredProjects.filter(project => projectHasCategory(project, 'fullstack')).slice(0, 9);
       case 'frontend':
-        return featuredProjects.filter(project => project.category === 'frontend').slice(0, 9);
+        return featuredProjects.filter(project => projectHasCategory(project, 'frontend')).slice(0, 9);
       case 'ecommerce':
-        return featuredProjects.filter(project => project.category === 'ecommerce').slice(0, 6);
-      case 'featured':
-        return featuredProjects.filter(project => project.featured);
+        return featuredProjects.filter(project => projectHasCategory(project, 'ecommerce')).slice(0, 6);
       case 'all':
       default:
         return featuredProjects;
@@ -261,19 +263,30 @@ const Projects = () => {
   // Get technology color
   const getTechColor = (tech) => {
     const colors = {
-      'JavaScript': '#F7DF1E',
+      'JavaScript': '#002f51',
       'TypeScript': '#3178C6',
-      'React': '#61DAFB',
+      'React': '#81E0FF',
       'Vue': '#4FC08D',
       'Node.js': '#339933',
       'Python': '#3776AB',
-      'HTML': '#E34F26',
-      'HTML5': '#E34F26',
+      'HTML': '#FB5227',
+      'HTML5': '#FB5227',
       'CSS': '#1572B6',
-      'CSS3': '#1572B6',
+      'CSS3': '#2D53E5',
       'SCSS': '#CF649A',
       'Tailwind CSS': '#06B6D4',
-      'Hooks': '#61DAFB'
+      'Hooks': '#61DAFB',
+      'PHP': '#7B7FB5',
+      'CodeIgniter4': '#F3992B',
+      'SQL': '#BE6C08',
+      'Supabase': '#3ECF8E',
+      'Context API': '#61DAFB',
+      'Web APIs': '#5A67D8',
+      'Axios': '#5A29E4',
+      'TMDb API': '#01B4E4',
+      'React Router': '#CA4245',
+      'KnockoutJS': '#E42D2C',
+      'Less': '#000000',
     };
     return colors[tech] || '#666';
   };

@@ -179,38 +179,38 @@ export const translations = {
          'sinsa': {
         title: 'Sinsa - Ecommercer - OCC',
         description: 'Ecommercer  na plataforma Oracle Cloud Commercer - OCC Uma empresa especializada em materiais de contrução na Nicarágua',
-        highlights: ['Ecommercer', 'Oracle Cloud Commercer', 'KnockoutJS','Less','Jquery']
+        highlights: ['E-commerce OCC', 'Construção civil', 'Mercado internacional']
          },
         'farmaciasespecializadas': {
         title: 'Farmácias Especializadas - Ecommercer - OCC - B2B',
         description: 'Ecommercer  na plataforma Oracle Cloud Commercer - Uma Farmacia online  com medicamentos para medicos e pacientes no Mexico',
-        highlights: ['Ecommercer', 'Oracle Cloud Commercer', 'KnockoutJS','Less','Jquery']
+        highlights: ['E-commerce B2B', 'Catálogo farmacêutico', 'Oracle OCC']
       },
        
         'armazempb': {
         title: 'Armazém Paraíba  - Ecommercer - OCC - B2B',
         description: 'Ecommercer  na plataforma Oracle Cloud Commercer - Uma loja online Móveis, Celulares, Smart TV e Mais | Armazém Paraíba - Armazém PB',
-        highlights: ['Ecommercer', 'Oracle Cloud Commercer', 'KnockoutJS','Less','Jquery']
+        highlights: ['E-commerce B2B', 'Varejo online', 'Oracle OCC']
       },
        
         'polybalas': {
         title: 'Polybalas  - Ecommercer - OCC - B2C',
         description: 'Ecommercer  na plataforma Oracle Cloud Commercer - Uma loja online  Higiene, beleza e saúde | Polybalas ',
-        highlights: ['Ecommercer', 'Oracle Cloud Commercer', 'KnockoutJS','Less','Jquery']
+        highlights: ['E-commerce B2C', 'Saúde e beleza', 'Oracle OCC']
       },
         'frigelar': {
         title: 'Frigelar  - Ecommercer - OCC - B2C e B2B',
         description: 'Ecommercer  na plataforma Oracle Cloud Commercer - A Frigelar a dedicar-se exclusivamente à revenda de peças, câmaras frigoríficas e condicionadores de ar, tember com outros eletrodomésticos. ',
-        highlights: ['Ecommercer', 'Oracle Cloud Commercer', 'KnockoutJS','Less','Jquery']
+        highlights: ['B2B e B2C', 'Peças e climatização', 'Oracle OCC']
       },
       'Widoing': {
         title: 'Widoing - Frontend',
-        description: 'Modernization of the Widoing platform - interface modernization focused on performance and mobile. • Visual and architectural redesign — new identity implemented from scratch. • Code audit and refactoring — removing redundancies and optimizing loading performance.',
-        highlights: ['PHP', 'CodeIgniter4', 'SQL', 'JavaScript', 'CSS3', 'HTML5']
+        description: 'Modernização da plataforma Widoing - modernização da interface com foco em desempenho e dispositivos móveis. \n Redesign visual e arquitetônico — nova identidade implementada do zero. \n Auditoria e refatoração de código — remoção de redundâncias e otimização do desempenho de carregamento.',
+        highlights: ['Redesign visual', 'Performance mobile', 'Refactoring code']
       },
       'Ycons': {
         title: 'YCONS IT Consulting - Frontend',
-        description: '•	Modernização do site institucional da YCONS — consultoria de tecnologia com mais de 20 anos de mercado. •	Redesenho completo de identidade visual e arquitetura, com 5 páginas (Sobre, Serviços, Tecnologias, Contato, Carreira) em abordagem mobile-first. •	Refatoração do código existente — eliminação de redundâncias e organização da estrutura para sustentabilidade.',
+        description: '•	Modernização do site institucional da YCONS — consultoria de tecnologia com mais de 20 anos de mercado. \n•	Redesenho completo de identidade visual e arquitetura, com 5 páginas (Sobre, Serviços, Tecnologias, Contato, Carreira) em abordagem mobile-first. \n•	Refatoração do código existente — eliminação de redundâncias e organização da estrutura para sustentabilidade.',
         highlights: ['Mobile-first', 'Refatoração de código', 'Identidade visual']
       },
     }
@@ -395,34 +395,39 @@ export const translations = {
         'sinsa': {
         title: 'Sinsa - Ecommercer - OCC',
         description: 'E-commerce on the Oracle Cloud Commercer platform - OCC. A company specializing in construction materials in Nicaragua.',
-        highlights: ['Ecommercer', 'Oracle Cloud Commercer', 'KnockoutJS','Less','Jquery']
+        highlights: ['OCC e-commerce', 'Construction materials', 'International market']
          },
         'farmaciasespecializadas': {
         title: 'Farmácias Especializadas - Ecommercer - OCC - B2B',
         description: 'E-commerce on the Oracle Cloud Commercer platform - An online pharmacy with medications for doctors and patients in Mexico.',
-        highlights: ['Ecommercer', 'Oracle Cloud Commercer', 'KnockoutJS','Less','Jquery']
+        highlights: ['B2B e-commerce', 'Pharmacy catalog', 'Oracle OCC']
       },
        
         'armazempb': {
         title: 'Armazém Paraíba  - Ecommercer - OCC - B2B',
         description: 'E-commerce on the Oracle Cloud Commerce platform - An online store for Furniture, Cell Phones, Smart TVs and More | Armazém Paraíba - Armazém PB',
-        highlights: ['Ecommercer', 'Oracle Cloud Commercer', 'KnockoutJS','Less','Jquery']
+        highlights: ['B2B e-commerce', 'Online retail', 'Oracle OCC']
       },
        
         'polybalas': {
         title: 'Polybalas  - Ecommercer - OCC - B2C',
         description: '-commerce on the Oracle Cloud Commercer platform - An online store for Hygiene, beauty and health products| Polybalas ',
-        highlights: ['Ecommercer', 'Oracle Cloud Commercer', 'KnockoutJS','Less','Jquery']
+        highlights: ['B2C e-commerce', 'Health and beauty', 'Oracle OCC']
       },
         'frigelar': {
         title: 'Frigelar  - Ecommercer - OCC - B2C e B2B',
         description: ' Ecommerce on the Oracle Cloud Commercer platform - Frigelar is dedicated exclusively to the resale of parts, cold rooms and air conditioners, as well as other household appliances.',
-        highlights: ['Ecommercer', 'Oracle Cloud Commercer', 'KnockoutJS','Less','Jquery']
+        highlights: ['B2B and B2C', 'Parts and HVAC', 'Oracle OCC']
       },
         'Widoing': {
         title: 'Widoing - Frontend',
-        description: 'Modernization of the Widoing platform - interface modernization focused on performance and mobile. • Visual and architectural redesign — new identity implemented from scratch. • Code audit and refactoring — removing redundancies and optimizing loading performance.',
-        highlights: ['PHP', 'CodeIgniter4', 'SQL', 'JavaScript', 'CSS3', 'HTML5']
+        description: 'Modernization of the Widoing platform - interface modernization focused on performance and mobile.\n Visual and architectural redesign — new identity implemented from scratch. \n Code audit and refactoring — removing redundancies and optimizing loading performance.',
+        highlights: ['Visual redesign', 'Mobile performance', 'Code refactoring']
+      },
+        'Ycons': {
+        title: 'YCONS IT Consulting - Frontend',
+        description: '• Modernization of the YCONS institutional website — a technology consulting company with over 20 years in the market.\n• Complete redesign of the visual identity and architecture, with 5 pages (About, Services, Technologies, Contact, Careers) using a mobile-first approach. \n• Refactoring of the existing codebase — removing redundancies and organizing the structure for long-term maintainability.',
+        highlights: ['Mobile-first', 'Code refactoring', 'Visual identity']
       },
     }
   }
